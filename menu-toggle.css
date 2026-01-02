@@ -1,0 +1,187 @@
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .citizen-drawer {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .citizen-dropdown-details {
+            list-style: none;
+        }
+        
+        .citizen-dropdown-summary {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 16px;
+            background: black;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s;
+            position: relative;
+        }
+        
+        .citizen-dropdown-summary:hover {
+           
+        }
+        
+        /* 3 çizgi container - RELATİVE OLMALI */
+        .citizen-ui-icon {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 24px;
+            height: 18px;
+            transition: all 0.4s ease;
+        }
+        
+        /* 3 çizgi */
+        .citizen-ui-icon span {
+            display: block;
+            width: 20px;
+            height: 2px;
+            background: white;
+            border-radius: 1px;
+            transition: all 0.3s ease;
+        }
+        
+        /* Hover'da çizgileri gizle */
+        .citizen-dropdown-summary:hover .citizen-ui-icon span {
+            opacity: 0;
+            transform: scale(0);
+        }
+        
+        /* HOVER RESMİ - IMG ETİKETİ KULLANARAK */
+        .hover-image {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 35px;
+            height: 35px;
+            transform: translate(-50%, -50%) scale(0) rotate(-180deg);
+            opacity: 0;
+            transition: all 0.4s ease;
+            border-radius: 4px;
+            pointer-events: none;
+        }
+        
+        /* Hover'da resmi göster */
+        .citizen-dropdown-summary:hover .hover-image {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1) rotate(0deg);
+        }
+        
+        
+.citizen-drawer__card {
+    position: absolute;
+    top: -8px;           
+    left: 55px;       
+    min-width: 300px;
+    background: black;
+    border: 1px solid #333;
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    z-index: 1001;
+
+    
+    opacity: 0;            
+    visibility: hidden;   
+    transform: scale(0);   
+    transform-origin: top left; 
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1);
+}
+
+/* Mevcut açılma tetikleyicisini bununla değiştir */
+.citizen-dropdown-details[open] ~ .citizen-drawer__card {
+    display: block !important; /* Display çakışmasını önlemek için */
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1); /* Normal boyutuna gel */
+}
+        
+        .citizen-menu__card-content {
+            padding: 16px;
+        }
+        
+        .citizen-drawer__header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 20px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid #333;
+        }
+        
+        .mw-logo-icon {
+            border-radius: 8px;
+        }
+        
+        .citizen-drawer__siteinfo {
+            flex: 1;
+        }
+        
+        .mw-logo-wordmark {
+            display: block;
+        }
+        
+        .citizen-menu__heading {
+            font-weight: bold;
+            color: seashell;
+            text-align: center;
+            margin-bottom: 12px;
+            margin-top: -13px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #333;
+        }
+        
+        .citizen-menu__content-list {
+            list-style: none;
+        }
+        
+        .mw-list-item {
+            margin-bottom: 8px;
+        }
+        
+        .mw-list-item a {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            color: seashell;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+        }
+        
+        .mw-list-item a:hover {
+            background: #1a1a1a;
+        }
+        
+        .mw-icon {
+            width: 20px;
+            height: 20px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mw-icon svg {
+            width: 100%;
+            height: 100%;
+            fill: white;
+        }
+        
+        .citizen-dropdown-details > summary {
+            list-style: none;
+        }
+        
+        .citizen-dropdown-details > summary::-webkit-details-marker {
+            display: none;
+        }
