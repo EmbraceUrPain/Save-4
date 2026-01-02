@@ -1,0 +1,642 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/EmbraceUrPain/Save-4@main/stil.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/EmbraceUrPain/Save-4@main/menu-toggle.css">
+    <script src="https://cdn.jsdelivr.net/gh/EmbraceUrPain/Save-4@main/event.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/EmbraceUrPain/Save-4@main/menu-toggle.js"></script>
+
+
+
+    <style>
+  .menu-btn2:hover .menu-icon2 {
+    transform: rotate(360deg) scale(1.1);
+  }
+  
+  .karakter-cols {
+    background-color: #0d121b;
+    width: 160px;
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 10px;
+    padding: 10px;
+    transition: background-color 0.5s ease;
+  }
+  
+  .character {
+    width: 100%;
+    height: 140px;
+    object-fit: contain;
+  }
+  
+  .karakter-cols a {
+    margin-top: 8px;
+    text-align: center;
+    font-size: 14px;
+  }
+</style>
+
+    <script>
+  let isLight = false;
+  
+  function darkMode() {
+    const body = document.body;
+    const btn = document.querySelector(".menu-btn");
+    const characterCols = document.querySelectorAll(".karakter-cols");
+    const mainKarakterDiv = document.querySelector(".mainKarakterDiv");
+    const paragraphs = document.querySelectorAll("p");
+    const hrs = document.querySelectorAll("hr"); 
+    
+    // Toggle işlemleri
+    document.querySelector(".sidebar").classList.toggle("light");
+    document.body.classList.toggle("light-mode");
+    
+    if (!isLight) {
+      /* Light Mode */
+      characterCols.forEach(div => div.classList.add("light-bg"));
+      btn.classList.add("dark");
+      mainKarakterDiv.classList.add("light-span");
+      paragraphs.forEach(p => p.style.color = "black");
+      hrs.forEach(hr => hr.style.borderColor = "black"); 
+      isLight = true;
+    } else {
+      /* Dark Mode */
+      characterCols.forEach(div => div.classList.remove("light-bg"));
+      btn.classList.remove("dark");
+      mainKarakterDiv.classList.remove("light-span");
+      paragraphs.forEach(p => p.style.color = "#a1b1d0");
+      hrs.forEach(hr => hr.style.borderColor = "#CCCCCC"); 
+      isLight = false;
+    }
+  }
+</script>
+
+    <link href="https://static.wikitide.net/blacksoulswiki/5/5d/RedHoodIcon.png?v=2">
+
+    <title>Black Souls Wiki</title>
+  </head>
+  <body>
+
+    <!--Navbar Başlangıç-->
+       
+         <nav class="sidebar d-flex flex-column position-fixed top-0 start-0 vh-100 justify-content-start site-navbar">
+
+    <!--Menu Toggle Başlangıc-->
+
+    <div class="citizen-drawer citizen-header__item citizen-dropdown">
+        <details class="citizen-dropdown-details">
+            <summary class="citizen-dropdown-summary" title="Toggle menu" aria-details="citizen-drawer__card">
+                <span class="citizen-ui-icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <img src="https://static.wikitide.net/blacksoulswiki/a/a9/iconwiki.gif"  class="hover-image">
+                </span>
+            </summary>
+        </details>
+        <div id="citizen-drawer__card" class="citizen-drawer__card citizen-menu__card">
+            <div class="citizen-menu__card-content">
+                <header class="citizen-drawer__header">
+                    <a href="/" class="mw-logo citizen-drawer__logo" title="Visit the main page">
+                        <img class="mw-logo-icon" src="https://static.miraheze.org/blacksoulswiki/a/a9/iconwiki.gif" alt="" aria-hidden="true" height="80" width="80" loading="lazy">
+                    </a>
+                    <div class="citizen-drawer__siteinfo">
+                        <img class="mw-logo-wordmark" alt="Black Souls wiki" src="https://static.wikitide.net/blacksoulswiki/d/dc/finalfinalinvert.png" width="106" height="42">
+                    </div>
+                </header>
+                <section id="citizen-main-menu" class="citizen-main-menu citizen-drawer__menu">
+                    <nav id="p-navigation" class="citizen-menu mw-portlet mw-portlet-navigation">
+                        <div class="citizen-menu__heading">
+                            Navigation
+                        </div>
+                        <div class="citizen-menu__content">
+                            <ul class="citizen-menu__content-list">
+                                <li id="n-mainpage-description" class="mw-list-item"><a href="#community" ><span class="mw-icon">
+                                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                                        <path d="M12 3 2 12h3v9h6v-6h2v6h6v-9h3z"/>
+
+                                    </svg>
+                                    </span>
+                                    <span style="margin-left:12px">Main page</span>
+                                    </a>
+                                </li>
+                                <li id="n-recentchanges" class="mw-list-item"><a href="#mid">
+                                  <img src="https://github.com/EmbraceUrPain/Save1/blob/main/images/icons8-community-32.png?raw=true">
+                                  <span>Community</span></a>
+                                </li>
+                                <li id="n-randompage" class="mw-list-item"><a href="#character">
+                                  <img src="https://github.com/EmbraceUrPain/Save1/blob/main/images/icons8-knight-64.png?raw=true" style="width:32px; height:32px;">
+                                  <span>Characters</span></a>
+                                </li>
+                                
+                            </ul>
+                        </div>
+                    </nav>
+                </section>
+            </div>
+        </div>
+    </div>
+
+      <!--Menu Toggle Bitiş-->  
+
+
+ 
+
+  <hr class="sidebar-divider" style="margin-top: 6px;border-radius: 3px;">
+
+  
+      <a href="https://cdn.jsdelivr.net/gh/EmbraceUrPain/Save-4@main/sayfa2.html" class="menu-btn2" style="margin-bottom: 5px;">
+        <span class="menu-icon2"></span>
+      </a>
+
+      <button class="menu-btn4 btn"
+        data-bs-toggle="modal"
+        data-bs-target="#registerModal1">
+        <span class="menu-icon4">✧</span>
+      </button>
+
+      <button class="menu-btn btn" onclick="darkMode()"  style="margin: auto 0px 5px 0px;" 
+        data-bs-toggle="offcanvas"
+        data-bs-target="#sideMenu">
+         <span class="menu-icon"></span>
+      </button>
+
+      <button class="menu-btn3 btn btn-outline-primary me-2"  
+        data-bs-toggle="modal" data-bs-target="#registerModal"
+        data-bs-target="#sideMenu">
+      <span class="menu-icon3"><img src="https://github.com/EmbraceUrPain/Save1/blob/main/images/icon.png?raw=true" style="width: 30px; height: 30px;"></span>
+      </button>
+
+      
+  </nav>
+          <!--Navbar Bitiş-->
+
+          <!-- Register Modal -->
+<div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content rounded-4 shadow-lg bg-black" style="color: seashell;">
+      <div class="modal-header">
+        <h5 class="modal-title fw-bold" id="registerModalLabel" style="margin-left:auto;">Kaydol</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Kapat"></button>
+      </div>
+      <div class="modal-body">
+
+        <form onsubmit="kulGirisi()">
+          <div class="mb-3">
+            <label for="regName" class="form-label">Kullanıcı Adı*</label>
+            <input type="text" class="form-control" id="regName" placeholder="K.adınızı girin." required>
+          </div>
+          <div class="mb-3">
+            <label for="regEmail" class="form-label">E-posta*</label>
+            <input type="email" class="form-control" id="regEmail" placeholder="Mail adresinizi girin." required>
+          </div>
+          <div class="mb-3">
+            <label for="regPassword" class="form-label">Şifre*</label>
+            <input type="password" class="form-control" id="regPassword" placeholder="Şifrenizi girin." required>
+          </div>
+          <button type="submit" class="btn w-100 bg-secondary"><h7 style="margin-right: 22px;">Kaydol</h7></button>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Register Modal -->
+<div class="modal fade" id="registerModal1" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered custom-modal">
+    <div class="modal-content rounded-4 shadow-lg bg-black" style="color: seashell;">
+      <div class="modal-header">
+        <h5 class="modal-title fw-bold" id="registerModalLabel" style="margin-left:auto;">İletişim</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Kapat"></button>
+      </div>
+      <div class="modal-body">
+        
+          <div class="row">
+            <div class="col-7">
+              
+              <form onsubmit="mesaj()">
+  <div class="mb-3">
+    <label for="regEmail2" class="form-label">E-posta</label>
+    <input type="email" class="form-control" id="regEmail2" placeholder="Mail adresinizi girin." required>
+  </div>
+  <div class="mb-3">
+    <label for="exampleFormControlTextarea1" class="form-label">Mesajınız*</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Mesajınızı girin." required></textarea>
+  </div>
+  <button type="submit" class="btn bg-secondary w-50 d-block mx-auto">Gönder</button>
+</form>
+
+            </div>
+            <div class="col-5">
+
+        <div class="card shadow-lg border-0 rounded-4 h-100 overflow-hidden">
+          <div class="card-body p-0">
+            <iframe style="width:100%; height:100%; border:0;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d16547069.654168837!2d-139.42873574513996!3d74.29049237304439!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14bbd862a762cacd%3A0x628cbba1a59ce8fe!2zxLB6bWlyLCBUw7xya2l5ZQ!5e1!3m2!1str!2sus!4v1765986984396!5m2!1str!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+            </div>
+          </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+    <div class="container">
+      <div class="row">
+
+        <a name="community"></a>
+        <div class="row">
+          <div class="col-md-12">
+            <img src="https://github.com/EmbraceUrPain/Main/blob/main/images/baner.jpg?raw=true" class="img-thumbnail" style="margin: 60px 0px 0px 0px;">
+            <hr style="border: 0; border-top:5px solid #CCCCCC; margin:30px 0px 0px 0px;border-radius: 3px;">
+          </div>
+        </div>
+        <a name="mid"></a>
+        
+
+        <div class="col-12" align="center">
+          
+            <img src="https://static.wikitide.net/blacksoulswiki/3/3d/NodeSprite.png" class="figures">
+            <img src="https://static.wikitide.net/blacksoulswiki/8/81/RedhoodSprite.png" class="figures">
+            <img src="https://static.wikitide.net/blacksoulswiki/1/12/LeafSprite.png" id="leaf">
+            <img src="https://static.wikitide.net/blacksoulswiki/2/2b/AliceSprite.png" class="figures">
+            <img src="https://static.wikitide.net/blacksoulswiki/3/3e/PrickettSprite.png" class="figures">
+            
+        </div>
+
+
+        <div class="col-12" align="center">
+          
+          <h1>Welcome to the <strong>Black Souls</strong> Community</h1>
+          <p style="color: #D4D0CF;margin-bottom: 20px;">Despair. Fear, Madness, and Lust ,once again. An original work based on "Alice in Wonderland" and "Through the Looking-Glass." Dark Fairy Tale Fantasy x Psychological Horror RPG focusing on the themes of "Exploration of a Mad World" and "Life or Death Combat against Demonbeasts".</p>
+
+          <p style="color: #FC8303;">[This wiki is a work-in-progress and is currently incomplete in many places. The work on creating the new pages continues.]</p>
+
+           <img src="https://static.wikitide.net/blacksoulswiki/2/24/VictoriaBS1Sprite.png" class="figures">
+            <img src="https://static.wikitide.net/blacksoulswiki/d/da/DorothySprite.png" class="figures">
+            <img src="https://static.wikitide.net/blacksoulswiki/6/64/GooseSprite.png" id="leaf">
+            <img src="https://static.wikitide.net/blacksoulswiki/2/29/JeanneSprite.png" class="figures">
+            <img src="https://static.wikitide.net/blacksoulswiki/8/84/RedHoodBS1Sprite.png" class="figures">
+             <hr style="border: 0; border-top:5px solid #CCCCCC;border-radius: 3px; margin:30px 0px 0px 0px;">
+        </div>
+
+        
+
+<div class="row m-3 align-items-center">
+
+  <div class="col-12 col-md-9">
+    <p><strong>WELCOME TO WONDERLAND!!</strong> In<strong> Black Souls</strong>, you play as an undead who wakes up to <span style="color:red;">the entire world.. crumbling around him?</span> People turning into monsters by some weird fog covering the world, it’s all so surreal. You, along with many companions along the way, fight to stop this fog while avoiding any threats you may encounter. You finally stop the fog and a familiar, dear blonde-haired young girl greets you. Time passes and you find yourself in a rabbit hole filled with dead knights, with only one thought in mind—to find that blonde haired girl, Alice.<br><br> Black Souls is an RPG developed by <strong>Eeny, meeny, miny, moe?</strong>. Black Souls is inspired by many pieces of literature and many writers, namely but not limited to Lewis Carroll’s <strong>"Alice in Wonderland"</strong>, Hans Christian Andersen’s <strong>"Little Match Girl"</strong>, HP Lovecraft’s <strong>"Cthulhu Mythos"</strong> and Charles Perrault’s <strong>"Little Red Riding Hood"</strong>.</p>
+  </div>
+
+  <div class="col-12 col-md-3 text-center">
+    <img
+      src="https://static.wikitide.net/blacksoulswiki/thumb/8/8e/sitdownalice.png/375px-sitdownalice.png"
+      class="img-fluid"
+      style="max-width:250px;">
+      
+  </div>
+
+</div>
+
+
+        
+        <a name="character"></a>
+        <div class="row justify-content-center mainKarakterDiv">
+          <hr style="border: 0; border-top:5px solid #CCCCCC;border-radius: 3px; margin:30px 0px 0px 0px;">
+        <h1 align="center">Characters</h1>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/8/8a/Grimm_Profile_Small.png" class="character">
+    <a href="https://ashen.rf.gd/?i=1"><span style="color: skyblue;">Grimm</span></a>
+  </div>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/thumb/7/7e/Node_Dialogue_HD.png/240px-Node_Dialogue_HD.png" class="character">
+    <a href="https://www.instagram.com/angelicstylx/"><span style="color: skyblue;">Node</span></a>
+  </div>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/thumb/6/6d/Cheshire_Cat_Dialogue_HD.png/240px-Cheshire_Cat_Dialogue_HD.png" class="character">
+    <a href="https://github.com/EmbraceUrPain"><span style="color: skyblue;">Cheshire Cat</span></a>
+  </div>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/thumb/7/7a/Red_Hood_Dialogue_HD.png/240px-Red_Hood_Dialogue_HD.png" class="character">
+    <a href="#"><span style="color: skyblue;">Red Hood</span></a>
+  </div>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/thumb/4/4e/Kuti_Dialogue_HD.png/240px-Kuti_Dialogue_HD.png" class="character">
+    <a href="#"><span style="color: skyblue;">Kuti</span></a>
+  </div>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/thumb/e/e4/Leaf_BS2_Dialogue_HD.png/240px-Leaf_BS2_Dialogue_HD.png" class="character">
+    <a href="#"><span style="color: skyblue;">Mary Sue</span></a>
+  </div>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/thumb/f/f9/Dodo_Dialogue_HD.png/240px-Dodo_Dialogue_HD.png" class="character">
+    <a href="#"><span style="color: skyblue;">Dodo</span></a>
+  </div>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/thumb/3/3a/Shisha_Dialogue_HD.png/240px-Shisha_Dialogue_HD.png" class="character">
+    <a href="#"><span style="color: skyblue;">Shisha</span></a>
+  </div>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/thumb/4/42/Tweedledum_Dialogue_HD.png/240px-Tweedledum_Dialogue_HD.png" class="character">
+    <a href="#"><span style="color: skyblue;">Tweedledum</span></a>
+  </div>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/thumb/b/b9/Tweedledee_Dialogue_HD.png/240px-Tweedledee_Dialogue_HD.png" class="character">
+    <a href="#"><span style="color: skyblue;">Tweedledee</span></a>
+  </div>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/thumb/e/e0/Margaret_Dialogue_HD.png/240px-Margaret_Dialogue_HD.png" class="character">
+    <a href="#"><span style="color: skyblue;">Margaret</span></a>
+  </div>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/thumb/4/4c/Bill_Dialogue_HD.png/240px-Bill_Dialogue_HD.png" class="character">
+    <a href="#"><span style="color: skyblue;">Bill</span></a>
+  </div>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/thumb/5/5a/Griffy_Dialogue_HD.png/240px-Griffy_Dialogue_HD.png" class="character">
+    <a href="#"><span style="color: skyblue;">Grify</span></a>
+  </div>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/thumb/6/63/Mock_Turtle_Dialogue_HD.png/240px-Mock_Turtle_Dialogue_HD.png" class="character">
+    <a href="#"><span style="color: skyblue;">Mock Turtle</span></a>
+  </div>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/thumb/c/c6/March_Hare_Dialogue_HD.png/240px-March_Hare_Dialogue_HD.png" class="character">
+    <a href="#"><span style="color: skyblue;">March Hare</span></a>
+  </div>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/thumb/d/dd/Dormouse_Dialogue_HD.png/240px-Dormouse_Dialogue_HD.png" class="character">
+    <a href="#"><span style="color: skyblue;">Dormouse</span></a>
+  </div>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/thumb/1/10/Hatta_Dialogue_HD.png/240px-Hatta_Dialogue_HD.png" class="character">
+    <a href="#"><span style="color: skyblue;">Hatta</span></a>
+  </div>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/thumb/7/70/Victoria_Dialogue_HD.png/240px-Victoria_Dialogue_HD.png" class="character">
+    <a href="#"><span style="color: skyblue;">Maid Victoria</span></a>
+  </div>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/thumb/9/94/Prickett_Dialogue_HD.png/240px-Prickett_Dialogue_HD.png" class="character">
+    <a href="#"><span style="color: skyblue;">Prickett</span></a>
+  </div>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/thumb/0/0d/Lorina_Dialogue_HD.png/240px-Lorina_Dialogue_HD.png" class="character">
+    <a href="#"><span style="color: skyblue;">Lorina</span></a>
+  </div>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/thumb/a/af/Bandersnatch_Dialogue_HD.png/240px-Bandersnatch_Dialogue_HD.png" class="character">
+    <a href="#"><span style="color: skyblue;">Bandersnatch</span></a>
+  </div>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/thumb/6/67/Jubjub_Dialogue_HD.png/240px-Jubjub_Dialogue_HD.png" class="character">
+    <a href="#"><span style="color: skyblue;">Jubjub</span></a>
+  </div>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/thumb/e/ec/Jabberwock_Dialogue_HD.png/240px-Jabberwock_Dialogue_HD.png" class="character">
+    <a href="#"><span style="color: skyblue;">Jabberwock</span></a>
+  </div>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/thumb/6/62/Crawling_One_Dialogue_HD.png/240px-Crawling_One_Dialogue_HD.png" class="character">
+    <a href="#"><span style="color: skyblue;">The Crawling One</span></a>
+  </div>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/thumb/c/c4/Serpent_God_Dialogue_HD.png/240px-Serpent_God_Dialogue_HD.png" class="character">
+    <a href="#"><span style="color: skyblue;">Serpent God</span></a>
+  </div>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/thumb/0/0b/Blackwell_Dialogue_HD.png/240px-Blackwell_Dialogue_HD.png" class="character">
+    <a href="#"><span style="color: skyblue;">Blackwell</span></a>
+  </div>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/4/4f/VernaiSprite.png" class="character">
+    <a href="#"><span style="color: skyblue;">Vernai</span></a>
+  </div>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/1/18/Knight_Pumpkin_O%27.png" class="character">
+    <a href="#"><span style="color: skyblue;">Knight Pumpkin</span></a>
+  </div>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/a/ac/Jack_Dialogue.png" class="character">
+    <a href="#"><span style="color: skyblue;">Detective Holmes</span></a>
+  </div>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/a/a3/Bunny_Girl_Mary_Dialogue.png" class="character">
+    <a href="#"><span style="color: skyblue;">Bunny Girl Mary</span></a>
+  </div>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/b/bc/Chikerost_Dialogue.png" class="character">
+    <a href="#"><span style="color: skyblue;">Chikerost</span></a>
+  </div>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/thumb/3/30/Humpty_Dialogue_HD.png/240px-Humpty_Dialogue_HD.png" class="character">
+    <a href="#"><span style="color: skyblue;">Humpty Dumpty</span></a>
+  </div>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/thumb/2/2c/Chick_Dialogue_HD.png/240px-Chick_Dialogue_HD.png" class="character">
+    <a href="#"><span style="color: skyblue;">Chick</span></a>
+  </div>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/thumb/c/c4/Meryphillia_Dialogue_HD.png/240px-Meryphillia_Dialogue_HD.png" class="character">
+    <a href="#"><span style="color: skyblue;">Meryphillia</span></a>
+  </div>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/0/06/Hein_Dialogue.png" class="character">
+    <a href="#"><span style="color: skyblue;">Hein</span></a>
+  </div>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/thumb/c/cf/Poro_Dialogue.png/240px-Poro_Dialogue.png" class="character">
+    <a href="#"><span style="color: skyblue;">Poro</span></a>
+  </div>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/thumb/5/56/Wolris_Dialogue_HD.png/240px-Wolris_Dialogue_HD.png" class="character">
+    <a href="#"><span style="color: skyblue;">Wolris</span></a>
+  </div>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/thumb/7/73/Oyster_Dialogue_HD.png/240px-Oyster_Dialogue_HD.png" class="character">
+    <a href="#"><span style="color: skyblue;">Cheeky Oyster</span></a>
+  </div>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/thumb/1/1c/Mabel_Dialogue_HD.png/240px-Mabel_Dialogue_HD.png" class="character">
+    <a href="#"><span style="color: skyblue;">Mabel</span></a>
+  </div>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/thumb/1/17/Florence_Dialogue_HD.png/240px-Florence_Dialogue_HD.png" class="character">
+    <a href="#"><span style="color: skyblue;">Florance</span></a>
+  </div>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/b/b5/Sackhead_Girl_Image.png" class="character">
+    <a href="#"><span style="color: skyblue;">Sackhead Girl</span></a>
+  </div>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/thumb/d/de/Lingeriena_Dialogue_HD.png/240px-Lingeriena_Dialogue_HD.png" class="character">
+    <a href="#"><span style="color: skyblue;">Lingeria</span></a>
+  </div>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/thumb/f/f4/Gerda_Dialogue_HD.png/240px-Gerda_Dialogue_HD.png" class="character">
+    <a href="#"><span style="color: skyblue;">Gerda</span></a>
+  </div>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/thumb/f/f0/Unis_Dialogue_HD.png/240px-Unis_Dialogue_HD.png" class="character">
+    <a href="#"><span style="color: skyblue;">Unis</span></a>
+  </div>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/thumb/5/5a/Leiden_Dialogue_HD.png/240px-Leiden_Dialogue_HD.png" class="character">
+    <a href="#"><span style="color: skyblue;">Leiden</span></a>
+  </div>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/thumb/0/07/Sho_Dialogue_HD.png/240px-Sho_Dialogue_HD.png" class="character">
+    <a href="#"><span style="color: skyblue;">Sho</span></a>
+  </div>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/1/13/Carnacki_Dialogue_HD.png" class="character">
+    <a href="#"><span style="color: skyblue;">Carnacki</span></a>
+  </div>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/thumb/5/58/Lindamea_Dialogue_HD.png/240px-Lindamea_Dialogue_HD.png" class="character">
+    <a href="#"><span style="color: skyblue;">Lindamea</span></a>
+  </div>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/8/8a/Edith_Dialogue_HD.png" class="character">
+    <a href="#"><span style="color: skyblue;">Edith</span></a>
+  </div>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/thumb/b/bb/Lorde_Dialogue_HD.png/240px-Lorde_Dialogue_HD.png" class="character">
+    <a href="#"><span style="color: skyblue;">Playwright Lorde</span></a>
+  </div>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/thumb/9/9f/Doll_Alice_Dialogue_HD.png/240px-Doll_Alice_Dialogue_HD.png" class="character">
+    <a href="#"><span style="color: skyblue;">Grand Guignol</span></a>
+  </div>
+
+</div>
+
+
+
+      </div>
+    </div>
+  </div>
+
+      <div class="footer site-footer">
+  <div class="row footer-row">
+
+    <div class="col-lg-9 col-12 footer-left">
+      <img src="https://media1.tenor.com/m/PBtqsQ9EZqIAAAAd/blacksouls-blacksouls2.gif" class="footer-icon"><br>
+
+      <img src="https://static.wikitide.net/blacksoulswiki/d/dc/finalfinalinvert.png" class="footer-logo"><br><br>
+
+      <span class="footer-text">
+        The crowdsourced wiki for the <a href="#"> Black Souls</a> series.
+        May or may not be managed by <a href="#">Mary Sue</a> secretly.
+        <small><span class="secret-text"><i>But don't tell anyone...</i></span></small>
+      </span>
+    </div>
+
+    <div class="col-lg-3 col-12 footer-right">
+      <img src="https://static.wikitide.net/blacksoulswiki/e/e2/Lorina.png.png" class="footer-character">
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
