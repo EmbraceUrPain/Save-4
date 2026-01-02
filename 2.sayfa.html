@@ -1,0 +1,492 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <style>
+      h1,h3{
+        color: white;
+      }
+      li p,p{
+        color: #a1b1d0;
+      }
+      /* ikon dönüş + değişim */
+      .menu-btn2:hover .menu-icon2 {
+        transform: rotate(180deg) scale(1.1);
+      }
+      
+    </style>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/EmbraceUrPain/Save-4@main/stil.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/EmbraceUrPain/Save-4@main/menu-toggle.css">
+    <script src="https://cdn.jsdelivr.net/gh/EmbraceUrPain/Save-4@main/event.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/EmbraceUrPain/Save-4@main/menu-toggle.js"></script>
+    
+    <script>
+      
+      let isLight = false;
+
+function darkMode() {
+  const body = document.body;
+  const btn = document.querySelector(".menu-btn");
+  const h1s = document.getElementsByTagName("h1");
+  const h2s = document.getElementsByTagName("h2");
+  const h3s = document.getElementsByTagName("h3");
+  const ps = document.getElementsByTagName("p");
+  const characterCols = document.querySelectorAll(".karakter-cols");
+  const mainKarakterDiv = document.querySelector(".mainKarakterDiv");
+  const hrs = document.querySelectorAll("hr");
+  document.querySelector(".sidebar").classList.toggle("light");
+   document.body.classList.toggle("light-mode");
+
+
+  if (!isLight) {
+    /*lightMode */
+    body.style.backgroundColor = "white";
+
+    for (let h of h1s) h.style.color = "black";
+    for (let h of h2s) h.style.color = "black";
+    for (let h of h3s) h.style.color = "black";
+    for (let p of ps) p.style.color = "black";
+    hrs.forEach(hr => hr.style.borderColor = "black");
+
+    characterCols.forEach(div => div.classList.add("light-bg"));
+    btn.classList.add("dark");   // ICON STATE
+    isLight = true;
+
+  } else {
+    /* siyahMode */
+    body.style.backgroundColor = "black";
+
+    for (let h of h1s) h.style.color = "white";
+    for (let h of h2s) h.style.color = "white";
+    for (let h of h3s) h.style.color = "white";
+    for (let p of ps) p.style.color = "#a1b1d0";
+    hrs.forEach(hr => hr.style.borderColor = "#CCCCCC");
+
+    characterCols.forEach(div => div.classList.remove("light-bg"));
+    btn.classList.remove("dark"); // ICON GERİ
+    isLight = false;
+  }
+}
+
+    </script>
+    <link rel="icon" href="https://static.wikitide.net/blacksoulswiki/5/5d/RedHoodIcon.png?v=2">
+
+    <title>Black Souls II Wiki</title>
+  </head>
+  <body style="background-color: black;">
+
+    <!--Navbar Başlangıç-->
+       
+         <nav class="sidebar d-flex flex-column position-fixed top-0 start-0 vh-100 justify-content-start site-navbar">
+
+  
+     
+
+    <!--Menu Toggle Başlangıc-->
+
+    <div class="citizen-drawer citizen-header__item citizen-dropdown">
+        <details class="citizen-dropdown-details">
+            <summary class="citizen-dropdown-summary" title="Toggle menu" aria-details="citizen-drawer__card">
+                <span class="citizen-ui-icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <img src="https://static.wikitide.net/blacksoulswiki/a/a9/iconwiki.gif"  class="hover-image">
+                </span>
+            </summary>
+        </details>
+        <div id="citizen-drawer__card" class="citizen-drawer__card citizen-menu__card">
+            <div class="citizen-menu__card-content">
+                <header class="citizen-drawer__header">
+                    <a href="/" class="mw-logo citizen-drawer__logo" title="Visit the main page">
+                        <img class="mw-logo-icon" src="https://static.miraheze.org/blacksoulswiki/a/a9/iconwiki.gif" alt="" aria-hidden="true" height="80" width="80" loading="lazy">
+                    </a>
+                    <div class="citizen-drawer__siteinfo">
+                        <img class="mw-logo-wordmark" alt="Black Souls wiki" src="https://static.wikitide.net/blacksoulswiki/d/dc/finalfinalinvert.png" width="106" height="42">
+                    </div>
+                </header>
+                <section id="citizen-main-menu" class="citizen-main-menu citizen-drawer__menu">
+                    <nav id="p-navigation" class="citizen-menu mw-portlet mw-portlet-navigation">
+                        <div class="citizen-menu__heading">
+                            Navigation
+                        </div>
+                        <div class="citizen-menu__content">
+                            <ul class="citizen-menu__content-list">
+                                <li id="n-mainpage-description" class="mw-list-item"><a href="#story" ><span class="mw-icon">
+                                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                                        <path d="M12 3 2 12h3v9h6v-6h2v6h6v-9h3z"/>
+
+                                    </svg>
+                                    </span>
+                                    <span>Main page</span>
+                                    </a>
+                                </li>
+                                <li id="n-recentchanges" class="mw-list-item"><a href="#gameplay">
+                                  <img src="https://github.com/EmbraceUrPain/Save1/blob/main/images/icons8-king-24.png?raw=true">
+                                  <span>Gameplay</span></a>
+                                </li>
+                                <li id="n-randompage" class="mw-list-item"><a href="#map">
+                                  <img src="https://github.com/EmbraceUrPain/Save1/blob/main/images/icons8-campfire-26.png?raw=true">
+                                  <span>Map/Bonefires</span></a>
+                                </li>
+                                
+                            </ul>
+                        </div>
+                    </nav>
+                </section>
+            </div>
+        </div>
+    </div>
+
+      <!--Menu Toggle Bitiş-->  
+
+
+ 
+
+  <hr class="sidebar-divider" style="margin-top: 6px;border-radius: 3px;">
+
+      <a href="index.html" class="menu-btn2" style="margin-bottom: 5px;">
+        <span class="menu-icon2"></span>
+      </a>
+
+      <button class="menu-btn4 btn"
+        data-bs-toggle="modal"
+        data-bs-target="#registerModal1">
+        <span class="menu-icon4">✧</span>
+      </button>
+
+      <button class="menu-btn btn" onclick="darkMode()"  style="margin: auto 0px 5px 0px;" 
+        data-bs-toggle="offcanvas"
+        data-bs-target="#sideMenu">
+         <span class="menu-icon"></span>
+      </button>
+
+      <button class="menu-btn3 btn btn-outline-primary me-2"  
+        data-bs-toggle="modal" data-bs-target="#registerModal"
+        data-bs-target="#sideMenu">
+      <span class="menu-icon3"><img src="https://github.com/EmbraceUrPain/Save1/blob/main/images/icon.png?raw=true" style="width: 30px; height: 30px;"></span>
+      </button>
+
+      
+  </nav>
+          <!--Navbar Bitiş-->
+
+         <!-- Register Modal -->
+<div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content rounded-4 shadow-lg bg-black" style="color: seashell;">
+      <div class="modal-header">
+        <h5 class="modal-title fw-bold" id="registerModalLabel" style="margin-left:auto;">Kaydol</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Kapat"></button>
+      </div>
+      <div class="modal-body">
+
+        <form onsubmit="kulGirisi()">
+          <div class="mb-3">
+            <label for="regName" class="form-label">Kullanıcı Adı*</label>
+            <input type="text" class="form-control" id="regName" placeholder="K.adınızı girin." required>
+          </div>
+          <div class="mb-3">
+            <label for="regEmail" class="form-label">E-posta*</label>
+            <input type="email" class="form-control" id="regEmail" placeholder="Mail adresinizi girin." required>
+          </div>
+          <div class="mb-3">
+            <label for="regPassword" class="form-label">Şifre*</label>
+            <input type="password" class="form-control" id="regPassword" placeholder="Şifrenizi girin." required>
+          </div>
+          <button type="submit" class="btn w-100 bg-secondary"><h7 style="margin-right: 22px;">Kaydol</h7></button>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Register Modal -->
+<div class="modal fade" id="registerModal1" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered custom-modal">
+    <div class="modal-content rounded-4 shadow-lg bg-black" style="color: seashell;">
+      <div class="modal-header">
+        <h5 class="modal-title fw-bold" id="registerModalLabel" style="margin-left:auto;">İletişim</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Kapat"></button>
+      </div>
+      <div class="modal-body">
+        
+          <div class="row">
+            <div class="col-7">
+              
+              <form onsubmit="mesaj()">
+  <div class="mb-3">
+    <label for="regEmail2" class="form-label">E-posta</label>
+    <input type="email" class="form-control" id="regEmail2" placeholder="Mail adresinizi girin." required>
+  </div>
+  <div class="mb-3">
+    <label for="exampleFormControlTextarea1" class="form-label">Mesajınız*</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Mesajınızı girin." required></textarea>
+  </div>
+  <button type="submit" class="btn bg-secondary w-50 d-block mx-auto">Gönder</button>
+</form>
+
+            </div>
+            <div class="col-5">
+
+        <div class="card shadow-lg border-0 rounded-4 h-100 overflow-hidden">
+          <div class="card-body p-0">
+            <iframe style="width:100%; height:100%; border:0;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d16547069.654168837!2d-139.42873574513996!3d74.29049237304439!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14bbd862a762cacd%3A0x628cbba1a59ce8fe!2zxLB6bWlyLCBUw7xya2l5ZQ!5e1!3m2!1str!2sus!4v1765986984396!5m2!1str!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+            </div>
+          </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+        <div class="container">
+          <div class="row">
+            <a name="story"></a>
+  <h1 style="margin:30px 0px 4px" align="center">Black Souls 2</h1>
+  
+  <div class="col-12 col-xl-9 order-1">
+    <h3 style="margin-left: 40px;">Story</h3>
+    <ul type="disc" style="color: blueviolet;">
+      <li>
+        <p>Grimm is the amalgamation of many fairytale writers who was a teacher. He was close to the daughters of the Dean, and was intimate with them. (Don't know where the H ending murder newspaper comes in) Grimm was caught, and it messed him up. When Alice grew up, he had a crisis and begged for her to be young again, and this caused an Outer Being, Mary-Anne, to take notice and transport him into her "Garden", where she used his writing as inspiration.</p>
+      </li>
+      <li>
+        <p>An Outer Being named The Crawling One assumed the identity of the young Alice, and along with several other Outer Beings, developed some form of feelings for Grimm. Grimm unknowingly became entrapped in a cycle of making love to or killing the girls in the story, who would be reborn as children-clones to repeat the cycle. In the true ending, Grimm breaks out by facing off against Mary-Ann and breaking that cycle, ending game 1. Mary Ann is struck down and trapped by another Outer God (The Crawling One?).</p>
+      </li>
+      <li>
+        <p>In game 2, Grimm loses most of his memory and is placed into a new Garden, seemingly either created by The Crawling One or Grand Guingol. The three Alice's are just pieces of the Crawling One. Node is another Outer Being, who supports Grimm due to having feelings for him. Red Hood is within the story, remembering everything from the first game and wanting to help Grimm break free. The same cycle problem can apply it seems, but progressing to the 'true' Red Hood ending is what I'm going for. Grimm picks up pieces of his real memory along the way to realise Alice isn't real in this world, but is still supernaturally obsessed with her for the most part. Grimm eventually faces Alice after collecting all his stories, and realising she is false, kills her. This leads him and Red Hood to face The Crawling One, but they cannot kill it entirely, just damage it enough to break the Garden. Grimm flees and survives, while Red Hood stays behind to buy time, ending Red Hood path.</p>
+      </li>
+      <li>
+        <p>In the Hell ending, Maybell (?), The Outer Being who controls the Chaos Dungeon, helps lead Grimm down a different path. After going through the DLC areas, he finds a false space created by Grand Guingol, a representation of the Garden itself? Maybell betrays Grimm because she has to obey Grand Guingol, but she still also has feelings for Grimm in a sense. After fighting Grand Guingol, Grimm is taken by The Crawling One to be used and tortured. Spared from unending suffering at the hands of The Crawling One by the Daughter Alice part of the Crawling One, but he still ends up trapped in a false reality.</p>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="col-12 col-xl-3 d-flex justify-content-center align-items-center order-2 text-center">
+    <div>
+      <img src="https://preview.redd.it/cheshire-dinah-from-black-souls-2-v0-kajhoumgd35e1.png?width=640&crop=smart&auto=webp&s=02bff7ca216db933d676fdf2cfb9aca1f2f883ef"
+           class="img-fluid" style="max-height:300px;max-width:360px;">
+      <p><strong> Thinking....</strong></p>
+    </div>
+  </div>
+</div>
+          <hr style="border: 0; border-top:5px solid #CCCCCC; margin:30px 0px 0px 0px;border-radius: 3px;">
+
+          <div class="row">
+            <div class="col-12 col-md-8">
+              <h1  style="margin:25px 0px 20px 0px">Official Synopsis</h1>
+              <p>This is an adult-oriented RPG, a sequel to "BLACK SOULS". Be warned, as it contains portrayals of cruelty and despair.
+In this work you'll meet 34 Heroines. Almost all of them are the fun characters you may have met before in the famous tale "Alice's Adventures in Wonderland". Though, now all of them are charming girls.
+(However, the most important for you is Alice of course, isn't that right?)</p>
+              <ul type="disc" style="color: blueviolet;">
+                <strong>
+                <li>
+                  <span style="color:goldenrod;"> The White Rabbit</span>  
+                </li>
+                <li>
+                  <span style="color:goldenrod;"> The Cheshire Cat</span>
+                </li>
+                <li>
+                  <span style="color:goldenrod;"> The Hatter</span>
+                </li>
+                <li>
+                  <span style="color:goldenrod;"> The March Hare</span> 
+                </li>
+                <li>
+                  <span style="color:goldenrod;"> The Dormouse</span>
+                </li>
+                <li>
+                  <span style="color:goldenrod;"> The Duchess</span>
+               </li>
+                <li>
+                  <span style="color:goldenrod;"> The Mock Turtle</span>
+               </li>
+                <li>
+                  <span style="color:goldenrod;"> The Gryphon</span>    
+               </li>
+                <li>
+                  <span style="color:goldenrod;"> The Queen of Heart</span>  
+               </li>
+                <li>
+                  <span style="color:goldenrod;"> The Red Queen</span>     
+               </li>
+                </strong>
+              </ul>
+              <p>And many others...</p>
+            </div>
+            <div class="col-12 col-md-4 text-center">
+              <img src="https://github.com/EmbraceUrPain/Save1/blob/main/images/lorina.png?raw=true" style="height: 400px;width: 550px;margin-top: 80px;">
+            </div>
+          </div>
+            <hr style="border: 0; border-top:5px solid #CCCCCC; margin:30px 0px 0px 0px;border-radius: 3px;">
+
+            <a name="gameplay"></a>
+            <div class="row m-3">
+              <div class="col-12">
+              <h1 align="center">Gameplay</h1>
+              <h3 style="margin:0px 0px 25px 0px;">Classes</h3>
+              <p>The game offers 9 unique classes at the start of the game. All classes have the Dodge and Break techniques. While the player cannot change their class after picking, all classes have similar stats and level up the same, with the exception of The Fluffy. Each class has a different appearance, though this can be changed in the Reminiscence Room located in the <a href="#"> Library Dream</a> after obtaining an ending.</p>
+
+              <p><span style="color:darkred;"> 【The Knight】</span> : <em>"High Attack and Defense. Knows techniques for lowering enemy Attack and Defense."</em> - Begin with the Knight's Sword, Knight's Shield, Knight's Helmet, and Knight's Armor.<br>
+                <span style="color:darkred;">【The Thief】</span> : <em>"Incredibly high Speed. Knows a technique for slaying foes in a single blow. Begins with 1000 bonus Souls."</em> - Begin with an extra 1000 Souls. Given the Thief's Dagger, Buckler, Thief's Mask, and Cloak of Shadows.<br>
+                <span style="color:darkred;">【The Sorcerer】</span> : <em>"Incredibly high Magic. Knows how to cast Soul Arrow(attack sorcery)."</em> - Given the Sorcerer's Staff, Round Shield, Magician Hat, Magician's Coat and Soul Arrow technique.<br>
+                <span style="color:darkred;">【The Cleric】</span> : <em>"High Magic and Magic Defense. Knows how to cast Soul Light(healing sorcery)."</em> - Given the Mace, Round Shield, Clergy Circlet, Clergy Clothes, and Soul Light technique.<br>
+                <span style="color:darkred;">【The Warrior】</span> : <em>"Incredibly high Attack. His regular attacks inflict Break. Knows a technique that increases his Crit Chance."</em> - Given the Club, Warrior's Round Shield, Viking Helm, and Warrior's Armor.<br>
+                <span style="color:darkred;">【The Templar】</span> : <em>"High Attack, Defense, and Magic Defense. Knows how to cast Soul Arrow(attack sorcery) and can use a technique that lowers enemy Magic Defense."</em> - Given the Halberd, Templar Shield, Helm of Milton, Armor of Milton, and Soul Arrow technique.<br>
+                <span style="color:darkred;">【The Hunter】</span> : <em>"High Attack, Evasion, and Magic Evasion. Deals extra damage to beasts. Begins with a gun instead of a shield, which changes Break skill."</em> - Given the Beasthunter Saw, Silver Pistol, and Hunter's Attire.<br>
+                <span style="color:darkred;">【The Explorer】</span> : <em>"Incredibly high Luck. Has no particular strengths, but begins with a good number of consumables."</em> - Begin with 5 Firebombs, 10 Blood Vials, 4 Blood Stanches, 4 Antidote Herbs, 2 Sedatives, 2 Pigeon's Eggs, 1 Homeward Bonedust, 1 Candy, 5 Girl's Photos. Given the Broken Sword, Wooden Shield, and Gentleman's Coat.<br>
+                <span style="color:darkred;">【The Fluffy】</span> : <em>"A furry enigma. Begins with no equipment, but all of his parameters are slightly higher."</em> - Begins with nothing. Starts with slightly higher stats. Levels up faster.</p>
+              </div>
+              <hr style="border: 0; border-top:5px solid #CCC; margin:30px 0px 0px 0px;border-radius: 3px; width: 900px; margin: 20px auto; 20px auto;">
+              <div class="col-12">
+                <h3 style="margin:0px 0px 10px 0px;">Souls</h3>
+                <p>There are two types of souls - currency and stat enhancements. The first is used to increase the level of the character and all companions. Souls are obtained after killing an enemy or using the souls of dead people. To increase stats:<span style="color:green;"> Green</span>,<span style="color:purple;"> Purple</span>,<span style="color:red;"> Red</span>,<span style="color:blue;"> Blue</span>,<span style="color:yellow;"> Yellow</span>,<span style="color:grey;"> Ashen</span>,<span style="color:white;"> Black</span>, <span style="color:lightgrey;">White</span> and <span style="color:palegoldenrod;">Tainted Black Souls</span>. They can be found at locations or purchased.</p>
+              </div>
+              
+
+              <div class="col-12">
+                <h3 style="margin:0px 0px 10px 0px;">Bonfire</h3>
+                <p>Bonfires are used to restore health and mana, as well as for quick teleportation between locations. Unlike Dark Souls, bonfires do not save the player.</p>
+                <h3 style="margin:0px 0px 10px 0px;">Companions</h3>
+                <p>The player can also find companions in this game, although only in a temporary one-battle form, as opposed to the previous game. Most of the companions the player can encounter are Dream Spirits strewn about the lands of Wonderland. The player can recruit them before batlles with bosses by interacting with their books. Sometimes, for the books to appear, some othe conditions need to be met. The player also needs to not be Hollow, which is a state they get after every death. It can be cured with the <u style="color: lightblue;">Girl's Scent</u> item.</p>
+                <h3 style="margin:0px 0px 10px 0px;">SEN</h3>
+                <p>A replacement of the Sin meter from the first game, SEN indicates the player's sanity or the lack of it. In the game, having it too low will cause you to see the inhabitants of <span style="color:red">Wonderland</span> as monsters, and will have Nightmare Spirits more likely to attack you.<br><br>
+
+SEN is often more detrimental, the earlier you are into the game. However it is necessary to achieve all the endings, gain a lot of items and witness a lot of special interactions in Black Souls II.<br><br>
+
+It will cause you to see enemies that can not be beaten at earlier levels, be disabled from talking to some people or straight up kill them. It also allows to see memories from before...</p>
+              </div>
+
+            </div>
+
+            <hr style="border: 0; border-top:5px solid #CCCCCC; margin:30px 0px 0px 0px;border-radius: 3px;">
+            <a name="map"></a>
+            <div class="col-12">
+        <div class="row">
+  <h1 style="color: white;" class="text-center">Map</h1>
+
+  <!-- HARİTA -->
+  <div class="col-12 col-md-9 text-center mb-4 mb-md-0">
+    <img
+      src="https://static.wikitide.net/blacksoulswiki/2/2d/World_Map_2.png"
+      class="img-fluid"
+      style="max-width:100%; height:auto;">
+  </div>
+
+  <!-- CAMPFIRES -->
+  <div class="col-12 col-md-3">
+    <h2 style="color: whitesmoke;" class="text-center text-md-start">CampFires</h2>
+    <p class="text-center text-md-start">
+      <a href="/Library_Dream">Library Dream</a><br />
+      <a href="/Crash_Chamber">Crash Chamber</a><br />
+      <a href="/Rabbit_Hole">Rabbit Hole</a><br />
+      <a href="/Lutwidge_Town">Lutwidge Town</a><br />
+      <a href="/Mental_Ward">Mental Ward</a><br />
+      <a href="/Park_Fog">Park Fog</a><br />
+      <a href="/Upper_Lutwidge">Upper Lutwidge</a><br />
+      <a href="/Ox_Ward_University">Ox Ward University</a><br />
+      <a href="/Endless_Tea_Party">Endless Tea Party</a><br />
+      <a href="/Sick_Clock_Tower">Sick Clock Tower</a><br />
+      <a href="/Liddell_Cemetary">Liddell Cemetary</a><br />
+      <a href="/Ripon_Grand_Cathedral">Ripon Grand Cathedral</a><br />
+      <a href="/Garden_of_the_Heart">Garden of the Heart</a><br />
+      <a href="/Red_Castle_Frissel">Red Castle Frissel</a><br />
+      <a href="/Pond_of_Bloody_Tears">Pond of Bloody Tears</a><br />
+      <a href="/Spore_Forest">Spore Forest</a><br />
+      <a href="/Mushroom_Village">Mushroom Village</a><br />
+      <a href="/Duchess%27_Mansion">Duchess' Mansion</a><br />
+      <a href="/Infinite_Food">Infinite Food</a><br />
+      <a href="/Billingsgate_Fish_Market">Billingsgate Fish Market</a><br />
+      <a href="/Fuming_Forest">Fuming Forest</a><br />
+      <a href="/Slaughterhouse">Slaughterhouse</a><br />
+      <a href="/Beach_of_Grief">Beach of Grief</a><br />
+      <a href="/Oysters%27_Rotted_Sea">Oysters' Rotted Sea</a><br />
+      <a href="/Carroll_River">Carroll River</a><br />
+      <a href="/Nameless_Forest">Nameless Forest</a><br />
+      <a href="/Station_Hanover">Station Hanover</a><br />
+      <a href="/Queensland">Queensland</a><br />
+      <a href="/Ship_Graveyard">Ship Graveyard</a><br />
+      <a href="/Deep_Sea">Deep Sea</a><br />
+      <a href="/Chaos_Dungeon">Chaos Dungeon</a>
+    </p>
+  </div>
+</div>
+
+
+            </div>
+            
+
+          </div>
+        </div>
+
+
+
+        
+      <div class="footer site-footer">
+  <div class="row footer-row">
+
+    <div class="col-lg-9 col-12 footer-left">
+      <img src="https://media1.tenor.com/m/PBtqsQ9EZqIAAAAd/blacksouls-blacksouls2.gif" class="footer-icon"><br>
+
+      <img src="https://static.wikitide.net/blacksoulswiki/d/dc/finalfinalinvert.png" class="footer-logo"><br><br>
+
+      <span class="footer-text">
+        The crowdsourced wiki for the <a href="#"> Black Souls</a> series.
+        May or may not be managed by <a href="#">Mary Sue</a> secretly.
+        <small><span class="secret-text"><i>But don't tell anyone...</i></span></small>
+      </span>
+    </div>
+
+    <div class="col-lg-3 col-12 footer-right">
+      <img src="https://static.wikitide.net/blacksoulswiki/e/e2/Lorina.png.png" class="footer-character">
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
