@@ -58,12 +58,12 @@
     const paragraphs = document.querySelectorAll("p");
     const hrs = document.querySelectorAll("hr"); 
     
-    // Toggle işlemleri
+    
     document.querySelector(".sidebar").classList.toggle("light");
     document.body.classList.toggle("light-mode");
     
     if (!isLight) {
-      /* Light Mode */
+      
       characterCols.forEach(div => div.classList.add("light-bg"));
       btn.classList.add("dark");
       mainKarakterDiv.classList.add("light-span");
@@ -71,7 +71,7 @@
       hrs.forEach(hr => hr.style.borderColor = "black"); 
       isLight = true;
     } else {
-      /* Dark Mode */
+      
       characterCols.forEach(div => div.classList.remove("light-bg"));
       btn.classList.remove("dark");
       mainKarakterDiv.classList.remove("light-span");
@@ -160,13 +160,17 @@
         <span class="menu-icon2"></span>
       </a>
 
-      <button class="menu-btn4 btn"
+      <a href="sayfa3.html" class="menu-btn4" style="margin-bottom: 5px;">
+        <span class="menu-icon4" style="margin-bottom:4px"><img src="images/icons8-song-25.png"></span>
+      </a>
+
+      <button class="menu-btn4 btn" style="margin: auto 0px 5px 0px;"
         data-bs-toggle="modal"
         data-bs-target="#registerModal1">
-        <span class="menu-icon4">✧</span>
+        <span class="menu-icon4" style="margin-bottom:4px"><img src="images/icons8-communication-16.png"> </span>
       </button>
 
-      <button class="menu-btn btn" onclick="darkMode()"  style="margin: auto 0px 5px 0px;" 
+      <button class="menu-btn btn" onclick="darkMode()"   style="margin-bottom: 5px;" 
         data-bs-toggle="offcanvas"
         data-bs-target="#sideMenu">
          <span class="menu-icon"></span>
