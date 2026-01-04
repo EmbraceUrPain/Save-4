@@ -15,7 +15,7 @@
       li p,p{
         color: #a1b1d0;
       }
-      /* ikon dönüş + değişim */
+      
       .menu-btn2:hover .menu-icon2 {
         transform: rotate(180deg) scale(1.1);
       }
@@ -28,7 +28,6 @@
     <script src="https://cdn.jsdelivr.net/gh/EmbraceUrPain/Save-4@main/menu-toggle.js"></script>
     
     <script>
-      
       let isLight = false;
 
 function darkMode() {
@@ -46,7 +45,7 @@ function darkMode() {
 
 
   if (!isLight) {
-    /*lightMode */
+    
     body.style.backgroundColor = "white";
 
     for (let h of h1s) h.style.color = "black";
@@ -60,7 +59,7 @@ function darkMode() {
     isLight = true;
 
   } else {
-    /* siyahMode */
+    
     body.style.backgroundColor = "black";
 
     for (let h of h1s) h.style.color = "white";
@@ -70,12 +69,12 @@ function darkMode() {
     hrs.forEach(hr => hr.style.borderColor = "#CCCCCC");
 
     characterCols.forEach(div => div.classList.remove("light-bg"));
-    btn.classList.remove("dark"); // ICON GERİ
+    btn.classList.remove("dark");
     isLight = false;
   }
 }
-
     </script>
+
     <link rel="icon" href="https://static.wikitide.net/blacksoulswiki/5/5d/RedHoodIcon.png?v=2">
 
     <title>Black Souls II Wiki</title>
@@ -85,9 +84,6 @@ function darkMode() {
     <!--Navbar Başlangıç-->
        
          <nav class="sidebar d-flex flex-column position-fixed top-0 start-0 vh-100 justify-content-start site-navbar">
-
-  
-     
 
     <!--Menu Toggle Başlangıc-->
 
@@ -119,22 +115,22 @@ function darkMode() {
                         </div>
                         <div class="citizen-menu__content">
                             <ul class="citizen-menu__content-list">
-                                <li id="n-mainpage-description" class="mw-list-item"><a href="#story" ><span class="mw-icon">
+                                <li id="n-mainpage-description" class="mw-list-item"><a href="#community" ><span class="mw-icon">
                                         <svg viewBox="0 0 24 24" aria-hidden="true">
                                         <path d="M12 3 2 12h3v9h6v-6h2v6h6v-9h3z"/>
 
                                     </svg>
                                     </span>
-                                    <span>Main page</span>
+                                    <span style="margin-left:12px">Main page</span>
                                     </a>
                                 </li>
-                                <li id="n-recentchanges" class="mw-list-item"><a href="#gameplay">
-                                  <img src="https://github.com/EmbraceUrPain/Save1/blob/main/images/icons8-king-24.png?raw=true">
-                                  <span>Gameplay</span></a>
+                                <li id="n-recentchanges" class="mw-list-item"><a href="#mid">
+                                  <img src="https://github.com/EmbraceUrPain/Save1/blob/main/images/icons8-community-32.png?raw=true">
+                                  <span>Community</span></a>
                                 </li>
-                                <li id="n-randompage" class="mw-list-item"><a href="#map">
-                                  <img src="https://github.com/EmbraceUrPain/Save1/blob/main/images/icons8-campfire-26.png?raw=true">
-                                  <span>Map/Bonefires</span></a>
+                                <li id="n-randompage" class="mw-list-item"><a href="#character">
+                                  <img src="https://github.com/EmbraceUrPain/Save1/blob/main/images/icons8-knight-64.png?raw=true" style="width:32px; height:32px;">
+                                  <span>Characters</span></a>
                                 </li>
                                 
                             </ul>
@@ -152,17 +148,22 @@ function darkMode() {
 
   <hr class="sidebar-divider" style="margin-top: 6px;border-radius: 3px;">
 
-      <a href="index.html" class="menu-btn2" style="margin-bottom: 5px;">
+  
+      <a href="https://embraceurpain.github.io/Save-4/sayfa2.html" class="menu-btn2" style="margin-bottom: 5px;">
         <span class="menu-icon2"></span>
       </a>
 
-      <button class="menu-btn4 btn"
+      <a href="sayfa3.html" class="menu-btn4" style="margin-bottom: 5px;">
+        <span class="menu-icon4" style="margin-bottom:4px"><img src="images/icons8-song-25.png"></span>
+      </a>
+
+      <button class="menu-btn4 btn" style="margin: auto 0px 5px 0px;"
         data-bs-toggle="modal"
         data-bs-target="#registerModal1">
-        <span class="menu-icon4">✧</span>
+        <span class="menu-icon4" style="margin-bottom:4px"><img src="images/icons8-communication-16.png"> </span>
       </button>
 
-      <button class="menu-btn btn" onclick="darkMode()"  style="margin: auto 0px 5px 0px;" 
+      <button class="menu-btn btn" onclick="darkMode()"   style="margin-bottom: 5px;" 
         data-bs-toggle="offcanvas"
         data-bs-target="#sideMenu">
          <span class="menu-icon"></span>
@@ -256,7 +257,7 @@ function darkMode() {
         <div class="container">
           <div class="row">
             <a name="story"></a>
-  <h1 style="margin:30px 0px 4px" align="center">Black Souls 2</h1>
+  <h1 style="margin:30px 0px 4px;" align="center">Black Souls 2</h1>
   
   <div class="col-12 col-xl-9 order-1">
     <h3 style="margin-left: 40px;">Story</h3>
@@ -490,4 +491,3 @@ It will cause you to see enemies that can not be beaten at earlier levels, be di
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
-
