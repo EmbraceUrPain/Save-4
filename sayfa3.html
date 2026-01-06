@@ -8,216 +8,86 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
+    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/EmbraceUrPain/Save-4@main/stil.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/EmbraceUrPain/Save-4@main/menu-toggle.css">
     <script src="https://cdn.jsdelivr.net/gh/EmbraceUrPain/Save-4@main/event.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/EmbraceUrPain/Save-4@main/menu-toggle.js"></script>
 
-    <link rel="icon" type="image/png" href="https://static.wikitide.net/blacksoulswiki/5/5d/RedHoodIcon.png?v=2"> 
-    <title>Black Souls Wiki</title>
-
-     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            background-color: #000000;
-            padding: 0px;
-            line-height: 1.6;
-            color: #a1b1d0;
-            transition: background-color 0.3s ease;
-
-        }
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            background: transparent;  
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: none;  
-            transition: background 0.3s ease;
-        }
-        body.light-mode .container {
-            background: transparent;  
-        }
-        h1 {
-            font-size: 28px;
-            margin-bottom: 20px;
-            border-bottom: 2px solid #a1b1d0;
-            padding-bottom: 10px;
-            color: #a1b1d0;
-            transition: color 1.0s ease, border-color 0.3s ease;
-        }
-        body.light-mode h1 {
-            color: #000;
-            border-bottom-color: #000;
-        }
-        .table-wrapper {
-            overflow-x: auto;
-            margin: 20px 0;
-        }
-        table {
-            border-collapse: collapse;
-            width: 100%;
-            background-color: #0a0a0a;
-            border: 1px solid #a1b1d0;
-            transition: background-color 0.3s ease, border-color 0.3s ease;
-        }
-        body.light-mode table {
-            background-color: #fff;
-            border-color: #333;
-        }
-        thead {
-            position: sticky;
-            top: 0;
-            z-index: 10;
-        }
-        th {
-            background-color: darkblue;
-            font-weight: bold;
-            text-align: left;
-            padding: 12px 10px;
-            border: 1px solid #a1b1d0;
-            color: #a1b1d0;
-            transition: all 0.3s ease;
-        }
-        body.light-mode th {
-            background-color: #e8e8e8;
-            border-color: #333;
-            color: #000;
-        }
-        td {
-            padding: 10px;
-            border: 1px solid #a1b1d0;
-            vertical-align: top;
-            color: #a1b1d0;
-            transition: all 0.3s ease;
-        }
-        body.light-mode td {
-            border-color: #333;
-            color: #000;
-        }
-        tbody tr:hover {
-            background-color: #1a2030;
-            transition: background-color 0.2s ease;
-        }
-
-        body.light-mode tbody tr:hover {
-            background-color: #f0f0f0;
-        }
-        a {
-            color: #6a9bd8;
-            text-decoration: none;
-            transition: color 0.2s ease;
-        }
-        body.light-mode a {
-            color: #0066cc;
-        }
-        a:hover {
-            text-decoration: underline;
-            color: #8ab4f8;
-        }
-        body.light-mode a:hover {
-            color: #0052a3;
-        }
-        a:visited {
-            color: #9c8bc7;
-        }
-        body.light-mode a:visited {
-            color: #551a8b;
-        }
-        @media (max-width: 768px) {
-            .container {
-                padding: 15px;
-            }
-            
-            table {
-                font-size: 13px;
-            }
-            
-            th, td {
-                padding: 6px 8px;
-            }
-        }
-        @media (max-width: 992px) {
-            .table-wrapper {
-                overflow-x: auto;
-                -webkit-overflow-scrolling: touch;
-            }
-
-            table {
-                min-width: 900px;
-            }
-        }
-
-        td, th {
-        white-space: nowrap;
-        }
-       
-        @media (min-width: 1200px) {
-            .table-wrapper {
-                overflow-x: hidden;
-            }
-        }
-        .menu-btn2:hover .menu-icon2 {
-        transform: rotate(180deg) scale(1.1);
-      }
 
 
-    </style>
-
+    <style>
+  .menu-btn2:hover .menu-icon2 {
+    transform: rotate(360deg) scale(1.1);
+  }
+  
+  .karakter-cols {
+    background-color: #0d121b;
+    width: 160px;
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 10px;
+    padding: 10px;
+    transition: background-color 0.5s ease;
+  }
+  
+  .character {
+    width: 100%;
+    height: 140px;
+    object-fit: contain;
+  }
+  
+  .karakter-cols a {
+    margin-top: 8px;
+    text-align: center;
+    font-size: 14px;
+  }
+</style>
 
     <script>
-      let isLight = false;
-function darkMode() {
-  const body = document.body;
-  const btn = document.querySelector(".menu-btn");
-  const h1s = document.getElementsByTagName("h1");
-  const h2s = document.getElementsByTagName("h2");
-  const h3s = document.getElementsByTagName("h3");
-  const ps = document.getElementsByTagName("p");
-  const characterCols = document.querySelectorAll(".karakter-cols");
-  const mainKarakterDiv = document.querySelector(".mainKarakterDiv");
-  const hrs = document.querySelectorAll("hr");
-
+  let isLight = false;
   
-  document.querySelector(".sidebar").classList.toggle("light");
-  document.body.classList.toggle("light-mode");
-  
-  if (!isLight) {
-   
-    body.style.backgroundColor = "seashell";
-    for (let h of h1s) h.style.color = "black";
-    for (let h of h2s) h.style.color = "black";
-    for (let h of h3s) h.style.color = "black";
-    for (let p of ps) p.style.color = "black";
-    hrs.forEach(hr => hr.style.borderColor = "black");
-    characterCols.forEach(div => div.classList.add("light-bg"));
-    btn.classList.add("dark");
-    isLight = true;
-  } 
-
-  else {
+  function darkMode() {
+    const body = document.body;
+    const btn = document.querySelector(".menu-btn");
+    const characterCols = document.querySelectorAll(".karakter-cols");
+    const mainKarakterDiv = document.querySelector(".mainKarakterDiv");
+    const paragraphs = document.querySelectorAll("p");
+    const hrs = document.querySelectorAll("hr"); 
     
-    body.style.backgroundColor = "black";
-    for (let h of h1s) h.style.color = "#a1b1d0";
-    for (let h of h2s) h.style.color = "white";
-    for (let h of h3s) h.style.color = "white";
-    for (let p of ps) p.style.color = "#a1b1d0";
-    hrs.forEach(hr => hr.style.borderColor = "#CCCCCC");
-    characterCols.forEach(div => div.classList.remove("light-bg"));
-    btn.classList.remove("dark");
-    isLight = false;
+    
+    document.querySelector(".sidebar").classList.toggle("light");
+    document.body.classList.toggle("light-mode");
+    
+    if (!isLight) {
+      
+      characterCols.forEach(div => div.classList.add("light-bg"));
+      btn.classList.add("dark");
+      mainKarakterDiv.classList.add("light-span");
+      paragraphs.forEach(p => p.style.color = "black");
+      hrs.forEach(hr => hr.style.borderColor = "black"); 
+      isLight = true;
+    } else {
+      
+      characterCols.forEach(div => div.classList.remove("light-bg"));
+      btn.classList.remove("dark");
+      mainKarakterDiv.classList.remove("light-span");
+      paragraphs.forEach(p => p.style.color = "#a1b1d0");
+      hrs.forEach(hr => hr.style.borderColor = "#CCCCCC"); 
+      isLight = false;
+    }
   }
-}
 </script>
 
+    <link rel="icon" type="image/png" href="https://static.wikitide.net/blacksoulswiki/5/5d/RedHoodIcon.png?v=2">
+
+    <title>Black Souls Wiki</title>
   </head>
   <body>
-    
+
     <!--Navbar Başlangıç-->
        
          <nav class="sidebar d-flex flex-column position-fixed top-0 start-0 vh-100 justify-content-start site-navbar">
@@ -252,15 +122,24 @@ function darkMode() {
                         </div>
                         <div class="citizen-menu__content">
                             <ul class="citizen-menu__content-list">
-                                <li id="n-mainpage-description" class="mw-list-item"><a href="#SoundTracks" ><span class="mw-icon">
+                                <li id="n-mainpage-description" class="mw-list-item"><a href="#community" ><span class="mw-icon">
                                         <svg viewBox="0 0 24 24" aria-hidden="true">
                                         <path d="M12 3 2 12h3v9h6v-6h2v6h6v-9h3z"/>
 
                                     </svg>
                                     </span>
-                                    <span style="margin-left:12px; color: white;">Main page</span>
+                                    <span style="margin-left:12px">Main page</span>
                                     </a>
                                 </li>
+                                <li id="n-recentchanges" class="mw-list-item"><a href="#mid">
+                                  <img src="https://github.com/EmbraceUrPain/Save1/blob/main/images/icons8-community-32.png?raw=true">
+                                  <span>Community</span></a>
+                                </li>
+                                <li id="n-randompage" class="mw-list-item"><a href="#character">
+                                  <img src="https://github.com/EmbraceUrPain/Save1/blob/main/images/icons8-knight-64.png?raw=true" style="width:32px; height:32px;">
+                                  <span>Characters</span></a>
+                                </li>
+                                
                             </ul>
                         </div>
                     </nav>
@@ -381,147 +260,335 @@ function darkMode() {
   </div>
 </div>
 
+    
     <div class="container">
       <div class="row">
 
-        <a name="SoundTracks"></a>
-        <h1>SoundTracks</h1>
-        <!-- Tablo Başlangıç -->
+        <a name="community"></a>
+        <div class="row">
+          <div class="col-md-12">
+            <img src="https://github.com/EmbraceUrPain/Main/blob/main/images/baner.jpg?raw=true" class="img-thumbnail" style="margin: 60px 0px 0px 0px;">
+            <hr style="border: 0; border-top:5px solid #CCCCCC; margin:30px 0px 0px 0px;border-radius: 3px;">
+          </div>
+        </div>
+        <a name="mid"></a>
+        
 
-        <div class="table-wrapper">
-            <table>
-                <thead>
-                    <tr>
-                        <th>BGM File Name</th>
-                        <th>Original Name</th>
-                        <th>Artist</th>
-                        <th>Source</th>
-                        <th>Note</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr><td>Ending H</td><td>Scarborough Fair (arr. Mercuzio)</td><td>Mercuzio</td><td><a href="https://www.youtube.com/watch?v=PRUlzahD320" target="_blank">YouTube</a></td><td></td></tr>
-                    <tr><td>人形.ogg</td><td>人形工房</td><td>Napi</td><td>M-ART</td><td>Doll Alice</td></tr>
-                    <tr><td>兎騎士.ogg</td><td>聖域決戦</td><td>Ucchii0</td><td>Ucchii0-うっちーぜろ-</td><td>Battle: Rabbit Knight Vernai</td></tr>
-                    <tr><td>公爵夫人.ogg</td><td>Gothic Dark</td><td>PeriTune</td><td>PeriTune</td><td>Battle: Duchess Margrant von Tyrol</td></tr>
-                    <tr><td>医院長.ogg</td><td>アンラ・マンユ</td><td>稿屋 隆</td><td>DOVA-SYNDROME</td><td>Boss: Founding Doctor Florence</td></tr>
-                    <tr><td>医院長２.ogg</td><td>oreikhalkos -オリハルコン-</td><td>KAZUNE</td><td>Tune YouTube</td><td>Boss: Heavenly Beast Florence</td></tr>
-                    <tr><td>卵.ogg</td><td>エントロピー増大開始</td><td>HRTa(Hirokazu Akiyama)</td><td>H-MIX GALLERY</td><td>Battle: Humpty Dumpty</td></tr>
-                    <tr><td>双子.ogg</td><td>Madness Infection</td><td>Ucchii0</td><td>Ucchii0-うっちーぜろ-</td><td>Battle: Tweedles (Both)</td></tr>
-                    <tr><td>名無しの森.ogg</td><td>Dungeon7</td><td>Ethron T. Young III</td><td>KOMODO</td><td>Nameless Forest</td></tr>
-                    <tr><td>回想.ogg</td><td>月蝕</td><td>ilodolly</td><td>DOVA-SYNDROME</td><td>Alice memory</td></tr>
-                    <tr><td>回想部屋.ogg</td><td>夢見る人形</td><td>M-ART</td><td>M-ART</td><td>Room of Reminiscence</td></tr>
-                    <tr><td>図書室の夢.ogg</td><td>MBJH_BGM02_Suddenly</td><td>Yu Namikoshi</td><td>KOMODO</td><td>Library Dream</td></tr>
-                    <tr><td>地獄の歯車.ogg</td><td>hell_gear</td><td>Taira Komori</td><td>TK'S FREE SOUND FX</td><td>Make Love with 繧｢繝ｪ繧ｹ繝ｻ繝ｪ繝?Ν</td></tr>
-                    <tr><td>墓地.ogg</td><td>蝋燭と影</td><td>Napi</td><td>M-ART</td><td>Liddell Cemetery</td></tr>
-                    <tr><td>大聖堂.ogg</td><td>メサイア・パイプオルガン</td><td>MusicPalette</td><td>MusicPalette</td><td>Ripon Grand Cathedral</td></tr>
-                    <tr><td>天使.ogg</td><td>オーケストラ22 天使が招いた輪廻</td><td>森田交一</td><td>魔王魂</td><td>Battle: Violence Demon Lingeriena</td></tr>
-                    <tr><td>妊婦.ogg</td><td>オーケストラ10 -エデンの園-</td><td>森田交一</td><td>魔王魂</td><td>Boss: Pregnant Cake</td></tr>
-                    <tr><td>子供部屋.ogg</td><td>見えない恐怖</td><td>shimtone</td><td>DOVA-SYNDROME</td><td>Child's Room (SEN≤70)</td></tr>
-                    <tr><td>子供部屋２.ogg</td><td>so sweet</td><td>稿屋 隆</td><td>DOVA-SYNDROME</td><td>Child's Room (SEN71+)</td></tr>
-                    <tr><td>学長.ogg</td><td>Boss4</td><td>Ethron T. Young III</td><td>KOMODO</td><td>Boss: Dean</td></tr>
-                    <tr><td>宇宙.ogg</td><td>DSP_BGM01_Venus_Aphrodite</td><td>MoppySound</td><td>KOMODO</td><td>The World's Dream</td></tr>
-                    <tr><td>屠.ogg</td><td>修羅鐘</td><td>かずち</td><td>DOVA-SYNDROME</td><td>Slaughterhouse</td></tr>
-                    <tr><td>巨人の家.ogg</td><td>The Marionette</td><td>Ucchii0</td><td>Ucchii0-うっちーぜろ-</td><td>Boss: Giant House</td></tr>
-                    <tr><td>廃駅.ogg</td><td>Village girl & 7 dolls</td><td>ilodolly</td><td>DOVA-SYNDROME</td><td>Abandoned Station Hanover</td></tr>
-                    <tr><td>心臓.ogg</td><td>運命の車輪は廻らない</td><td>M-ART</td><td>M-ART</td><td>Battle: Queen of the Heart Lorina (Phase 3)</td></tr>
-                    <tr><td>心臓の庭園.ogg</td><td></td><td></td><td>YouTube</td><td>Garden of the Heart</td></tr>
-                    <tr><td>悪夢.ogg</td><td>Dragon Slayer</td><td>魔界Symphony</td><td>YouTube</td><td>Boss: Three Nightmares</td></tr>
-                    <tr><td>悪夢霊.ogg</td><td>The 11th Lilith</td><td>M-ART</td><td>M-ART</td><td>Nightmare Spirit battles</td></tr>
-                    <tr><td>戦闘.ogg</td><td>MBJH_BGM18_Clarified_transformation</td><td>Yu Namikoshi</td><td>KOMODO</td><td>Regular battle</td></tr>
-                    <tr><td>戦闘２.ogg</td><td>闇に蠢く異形</td><td>YouFulca</td><td>ユーフルカ</td><td>Battle: Beast of Criminality/ Vagina Dentata</td></tr>
-                    <tr><td>戦闘３.ogg</td><td>襲撃</td><td>秋山裕和</td><td>H/MIX GALLERY</td><td>Battle: Red Beast</td></tr>
-                    <tr><td>扉.ogg</td><td>魔法の扉は夜開く</td><td>こおろぎ</td><td>DOVA-SYNDROME</td><td>Hall</td></tr>
-                    <tr><td>拷問具の女王.ogg</td><td>貴婦人の静かな狂気</td><td>M-ART</td><td>M-ART</td><td>Boss: Queen of Torture Tools</td></tr>
-                    <tr><td>拷問具の女王２.ogg</td><td>狂気の貴婦人</td><td>M-ART</td><td>M-ART</td><td>Boss: Queen of Torture Tools (Phase 2)</td></tr>
-                    <tr><td>拷問具の女王３.ogg</td><td>僕のエリザ</td><td>Napi</td><td>M-ART</td><td>Boss: Torture Queen Elizabeth</td></tr>
-                    <tr><td>星夢ゲイザー.ogg</td><td>星夢ゲイザー</td><td>龍崎一</td><td>DOVA-SYNDROME</td><td>Prickett's song</td></tr>
-                    <tr><td>時計仕掛けの歪なワルツ.ogg</td><td>時計仕掛けの歪なワルツ</td><td>こおろぎ</td><td>DOVA-SYNDROME</td><td>H End</td></tr>
-                    <tr><td>時計兎.ogg</td><td>MBJH_BGM10_New_hatred</td><td>Yu Namikoshi</td><td>KOMODO</td><td>Boss: White Rabbit Node</td></tr>
-                    <tr><td>時計兎２.ogg</td><td>White Dead</td><td>Ucchii0</td><td>Ucchii0-うっちーぜろ-</td><td>Boss: White Queen Node</td></tr>
-                    <tr><td>時計塔.ogg</td><td>時計の裏側</td><td>TOGA</td><td>DOVA-SYNDROME</td><td>Sick Clock Tower</td></tr>
-                    <tr><td>月.ogg</td><td>旧支配者のキャロル/The Carol of the Old ones(Japanese)</td><td></td><td>YouTube</td><td>The surface of the Moon</td></tr>
-                    <tr><td>村.ogg</td><td>呪われの館</td><td>YouFulca</td><td>ユーフルカ</td><td>Mushroom Village</td></tr>
-                    <tr><td>海.ogg</td><td>Undersea Palace</td><td>YouFulca</td><td>ユーフルカ</td><td>Temple of Depths</td></tr>
-                    <tr><td>海国.ogg</td><td>Splash</td><td>PeriTune</td><td>PeriTune</td><td>Winterbell</td></tr>
-                    <tr><td>深海、星の下で.ogg</td><td>深海、星の下で</td><td>ilodolly</td><td>DOVA-SYNDROME</td><td>House for the Princess</td></tr>
-                    <tr><td>深海.ogg</td><td>深海</td><td>天野 七祈</td><td>DOVA-SYNDROME</td><td>Deep Sea</td></tr>
-                    <tr><td>深海の海賊船.ogg</td><td>深海の海賊船</td><td>ilodolly</td><td>DOVA-SYNDROME</td><td>Ship Graveyard</td></tr>
-                    <tr><td>深海の異魚.ogg</td><td>オーケストラ11 -魔王の魂-</td><td>森田交一</td><td>魔王魂</td><td>Boss: God's Odd Fish</td></tr>
-                    <tr><td>深海騎士.ogg</td><td>BADEND</td><td>pikaMine</td><td>pikaMine</td><td>Boss: The Deep Sea Knight</td></tr>
-                    <tr><td>深海騎士２.ogg</td><td>ダブステップっぽい曲</td><td>ぴよひこ</td><td>YouTube</td><td>Boss: The Deep Sea Knight (Phase 2)</td></tr>
-                    <tr><td>混沌.ogg</td><td>Boss2</td><td>Ethron T. Young III</td><td>KOMODO</td><td>Chaos/Space Time Dungeon bosses</td></tr>
-                    <tr><td>混沌２.ogg</td><td>龍神 -Ryujin-</td><td>魔界Symphony</td><td>SoundCloud</td><td>Boss: Onimusha</td></tr>
-                    <tr><td>混沌３.ogg</td><td>Carnival_Dark</td><td>PeriTune</td><td>PeriTune</td><td>Boss: Demonic Princess of Thorns</td></tr>
-                    <tr><td>混沌４.ogg</td><td>ChoirWaltz</td><td>PeriTune</td><td>PeriTune</td><td>Boss: The Old King (Phase 2)</td></tr>
-                    <tr><td>混沌５.ogg</td><td>魔将決戦</td><td>YouFulca</td><td>ユーフルカ</td><td>Boss: Forbidden Beast Behemoth</td></tr>
-                    <tr><td>混沌６.ogg</td><td>嗤う道化師</td><td>M-ART</td><td>M-ART</td><td>Boss: Liar Doll Pinocchio</td></tr>
-                    <tr><td>混沌７.ogg</td><td>魔女の左薬指</td><td>M-ART</td><td>M-ART</td><td>Boss: Cinderella, the Queen of Ash</td></tr>
-                    <tr><td>混沌８.ogg</td><td>オーケストラ23 『be proudly』</td><td>森田交一</td><td>魔王魂</td><td>Boss: The Naked King</td></tr>
-                    <tr><td>混沌９.ogg</td><td>Boss3</td><td>Ethron T. Young III</td><td>KOMODO</td><td>Boss: The Old Frog King</td></tr>
-                    <tr><td>混沌１０.ogg</td><td></td><td></td><td>YouTube</td><td>Boss: Smelter Beast</td></tr>
-                    <tr><td>混沌１１.ogg</td><td></td><td></td><td>YouTube</td><td>Boss: Frankenstein's Monster</td></tr>
-                    <tr><td>混沌１２.ogg</td><td>吊るされた聖人</td><td>Napi</td><td>M-ART</td><td>Boss: Bluebird of Unhappiness</td></tr>
-                    <tr><td>混沌１３.ogg</td><td></td><td></td><td>YouTube</td><td>Chaos/Space Time Dungeon</td></tr>
-                    <tr><td>混沌１４.ogg</td><td>誰もいない風景</td><td>稿屋 隆</td><td>DOVA-SYNDROME</td><td>Chaos/Space Time Dungeon</td></tr>
-                    <tr><td>混沌１５.ogg</td><td>愛と憎しみのエリザベート</td><td>稿屋 隆</td><td>DOVA-SYNDROME</td><td>Chaos/Space Time Dungeon</td></tr>
-                    <tr><td>混沌１６.ogg</td><td>the ghost house</td><td>稿屋 隆</td><td>DOVA-SYNDROME</td><td>Chaos/Space Time Dungeon</td></tr>
-                    <tr><td>混沌１７.ogg</td><td></td><td></td><td>YouTube</td><td>Chaos/Space Time Dungeon</td></tr>
-                    <tr><td>混沌１８.ogg</td><td>ねじの回転</td><td>稿屋 隆</td><td>DOVA-SYNDROME</td><td>Chaos/Space Time Dungeon</td></tr>
-                    <tr><td>混沌１９.ogg</td><td>soundorbis</td><td></td><td>YouTube</td><td>Chaos/Space Time Dungeon</td></tr>
-                    <tr><td>混沌２０.ogg</td><td>Morinoyoukan</td><td>Dottimondo</td><td>Apple Music</td><td>Chaos/Space Time Dungeon</td></tr>
-                    <tr><td>混沌２１.ogg</td><td>LastBoss1</td><td>Ethron T. Young III</td><td>KOMODO</td><td>Boss: Frenzy Knights</td></tr>
-                    <tr><td>混沌２２.ogg</td><td>喪失の聖堂</td><td>Napi</td><td>M-ART</td><td>Chaos/Space Time Dungeon</td></tr>
-                    <tr><td>混沌２３.ogg</td><td>幽霊屋敷</td><td>Napi</td><td>M-ART</td><td>Chaos/Space Time Dungeon</td></tr>
-                    <tr><td>混沌２４.ogg</td><td>真夜中の時計塔</td><td>Napi</td><td>M-ART</td><td>Chaos/Space Time Dungeon</td></tr>
-                    <tr><td>混沌２５.ogg</td><td>アルラウネの森</td><td>Napi</td><td>M-ART</td><td>Chaos/Space Time Dungeon</td></tr>
-                    <tr><td>混沌２６.ogg</td><td>深淵</td><td>M-ART</td><td>M-ART</td><td>Chaos/Space Time Dungeon</td></tr>
-                    <tr><td>混沌２７.ogg</td><td></td><td></td><td>YouTube</td><td>Chaos/Space Time Dungeon</td></tr>
-                    <tr><td>混沌２８.ogg</td><td>教会の教え</td><td>Napi</td><td>M-ART</td><td>Chaos/Space Time Dungeon</td></tr>
-                    <tr><td>混沌２９.ogg</td><td>邦子のテーマ</td><td>YouFulca</td><td>ユーフルカ</td><td>Boss: Lust Demon Satyr</td></tr>
-                    <tr><td>混沌３０.ogg</td><td>Dragon War</td><td>魔界Symphony</td><td>YouTube</td><td>Boss: Ghost Drake Helkaiser</td></tr>
-                    <tr><td>混沌３１.ogg</td><td>Jinraihoutourambu</td><td>ISAo</td><td>W.O.W Sound</td><td>Boss: Onimusha (Phase 3)</td></tr>
-                    <tr><td>混沌３２.ogg</td><td>Bloodsucker</td><td>MFP</td><td>DOVA-SYNDROME</td><td>Boss: The Old King</td></tr>
-                    <tr><td>混沌３３.ogg</td><td>Battle - 砂漠 #2</td><td>lei</td><td>YouTube</td><td>Boss: Aladdin, the King of Desire</td></tr>
-                    <tr><td>混沌３４.ogg</td><td></td><td></td><td>YouTube</td><td>Boss: Shuten-dōji</td></tr>
-                    <tr><td>混沌３５.ogg</td><td>Whistle Walts</td><td>Tagord</td><td>ニコニ・コモンズ</td><td>Chaos/Space Time Dungeon</td></tr>
-                    <tr><td>混沌３６.ogg</td><td></td><td></td><td>YouTube</td><td>Chaos/Space Time Dungeon</td></tr>
-                    <tr><td>混沌３７.ogg</td><td>CASC_BGM03_celtic_bossbattle</td><td>Yu Namikoshi</td><td>Steam</td><td>Boss: Prince Charming</td></tr>
-                    <tr><td>混沌３８.ogg</td><td></td><td></td><td>YouTube</td><td>Boss: Puss in Boots</td></tr>
-                    <tr><td>混沌３９.ogg</td><td>Ghost Castle</td><td>こおろぎ</td><td>DOVA-SYNDROME</td><td>Chaos/Space Time Dungeon</td></tr>
-                    <tr><td>混沌４０.ogg</td><td>Cosmic</td><td>おしょう</td><td>DOVA-SYNDROME</td><td>Chaos/Space Time Dungeon</td></tr>
-                    <tr><td>混沌４１.ogg</td><td>Holy Sabbath</td><td>Keido Honda</td><td>DOVA-SYNDROME</td><td>Chaos/Space Time Dungeon</td></tr>
-                    <tr><td>混沌４２.ogg</td><td>不穏</td><td>こっけ</td><td>DOVA-SYNDROME</td><td>Chaos/Space Time Dungeon</td></tr>
-                    <tr><td>混沌４３.ogg</td><td>ある貴婦人の肖像</td><td>稿屋 隆</td><td>DOVA-SYNDROME</td><td>Chaos/Space Time Dungeon</td></tr>
-                    <tr><td>混沌４４.ogg</td><td>妖虫</td><td>Tagord</td><td>Audiostock</td><td>Chaos/Space Time Dungeon</td></tr>
-                    <tr><td>混沌４５.ogg</td><td>My Grandfather's Clock</td><td>R3 Music Box</td><td>YouTube</td><td>Chaos/Space Time Dungeon</td></tr>
-                    <tr><td>無限.ogg</td><td>全てを創造する者「Dominus Deus」</td><td>KK</td><td>DOVA-SYNDROME</td><td>Battle: Infinite Food</td></tr>
-                    <tr><td>無限食物.ogg</td><td>クッキング・タイム</td><td>d-elf</td><td>d-elf</td><td>Infinite Food</td></tr>
-                    <tr><td>燻り.ogg</td><td>Dungeon5</td><td>Ethron T. Young III</td><td>KOMODO</td><td>Fuming Forest</td></tr>
-                    <tr><td>狂気山脈.ogg</td><td>Ominous3</td><td>PeriTune</td><td>PeriTune</td><td>Mountains of Madness</td></tr>
-                    <tr><td>狂霊.ogg</td><td>Grand Final</td><td>Ucchii0</td><td>Ucchii0-うっちーぜろ-</td><td>Madness Spirits</td></tr>
-                    <tr><td>王立公園.ogg</td><td>Dungeon1</td><td>Ethron T. Young III</td><td>KOMODO</td><td>Park of Fog</td></tr>
-                    <tr><td>異世界.ogg</td><td>black_hole2</td><td>Taira Komori</td><td>TK'S FREE SOUND FX</td><td>繧｢繝ｪ繧ｹ繝ｻ繝ｪ繝?Ν</td></tr>
-                    <tr><td>白一角獣.ogg</td><td>Apocalypse Doors</td><td>ISAo</td><td>SoundCloud</td><td>Boss: White Unicorn Unis</td></tr>
-                    <tr><td>白獅子.ogg</td><td>tsudzumi-japan3</td><td>SHW</td><td>YouTube</td><td>Boss: White Lion Leiden</td></tr>
-                    <tr><td>秘密.ogg</td><td>Puppeteer</td><td>PeriTune</td><td>PeriTune</td><td>Battle: Secret Princess Kuti</td></tr>
-                    <tr><td>精神病棟.ogg</td><td>wall flower</td><td>オサナイユウタ</td><td>ニコニ・コモンズ</td><td>Mental Ward</td></tr>
-                    <tr><td>紅.ogg</td><td>混沌と絶望、そして死</td><td>YouFulca</td><td>ユーフルカ</td><td>Battle: Red Beast (Phase 2)</td></tr>
-                    <tr><td>紅２.ogg</td><td>Rainy Alley</td><td>秋山裕和</td><td>H/MIX GALLERY</td><td>Red Hood events</td></tr>
-                    <tr><td>紅城.ogg</td><td>British grenadiers march</td><td>ilodolly</td><td>DOVA-SYNDROME</td><td>Red Castle Frissel</td></tr>
-                    <tr><td>終わらないお茶会.ogg</td><td>終わらないお茶会</td><td>M-ART</td><td>M-ART</td><td>Endless Tea Party</td></tr>
-                </tbody>
-            </table>
+        <div class="col-12" align="center">
+          
+            <img src="https://static.wikitide.net/blacksoulswiki/3/3d/NodeSprite.png" class="figures">
+            <img src="https://static.wikitide.net/blacksoulswiki/8/81/RedhoodSprite.png" class="figures">
+            <img src="https://static.wikitide.net/blacksoulswiki/1/12/LeafSprite.png" id="leaf">
+            <img src="https://static.wikitide.net/blacksoulswiki/2/2b/AliceSprite.png" class="figures">
+            <img src="https://static.wikitide.net/blacksoulswiki/3/3e/PrickettSprite.png" class="figures">
+            
         </div>
 
-        <!-- Tablo Bitiş -->
+
+        <div class="col-12" align="center">
+          
+          <h1>Welcome to the <strong>Black Souls</strong> Community</h1>
+          <p style="color: #D4D0CF;margin-bottom: 20px;">Despair. Fear, Madness, and Lust ,once again. An original work based on "Alice in Wonderland" and "Through the Looking-Glass." Dark Fairy Tale Fantasy x Psychological Horror RPG focusing on the themes of "Exploration of a Mad World" and "Life or Death Combat against Demonbeasts".</p>
+
+          <p style="color: #FC8303;">[This wiki is a work-in-progress and is currently incomplete in many places. The work on creating the new pages continues.]</p>
+
+           <img src="https://static.wikitide.net/blacksoulswiki/2/24/VictoriaBS1Sprite.png" class="figures">
+            <img src="https://static.wikitide.net/blacksoulswiki/d/da/DorothySprite.png" class="figures">
+            <img src="https://static.wikitide.net/blacksoulswiki/6/64/GooseSprite.png" id="leaf">
+            <img src="https://static.wikitide.net/blacksoulswiki/2/29/JeanneSprite.png" class="figures">
+            <img src="https://static.wikitide.net/blacksoulswiki/8/84/RedHoodBS1Sprite.png" class="figures">
+             <hr style="border: 0; border-top:5px solid #CCCCCC;border-radius: 3px; margin:30px 0px 0px 0px;">
+        </div>
+
+        
+
+<div class="row m-3 align-items-center">
+
+  <div class="col-12 col-md-9">
+    <p><strong>WELCOME TO WONDERLAND!!</strong> In<strong> Black Souls</strong>, you play as an undead who wakes up to <span style="color:red;">the entire world.. crumbling around him?</span> People turning into monsters by some weird fog covering the world, it’s all so surreal. You, along with many companions along the way, fight to stop this fog while avoiding any threats you may encounter. You finally stop the fog and a familiar, dear blonde-haired young girl greets you. Time passes and you find yourself in a rabbit hole filled with dead knights, with only one thought in mind—to find that blonde haired girl, Alice.<br><br> Black Souls is an RPG developed by <strong>Eeny, meeny, miny, moe?</strong>. Black Souls is inspired by many pieces of literature and many writers, namely but not limited to Lewis Carroll’s <strong>"Alice in Wonderland"</strong>, Hans Christian Andersen’s <strong>"Little Match Girl"</strong>, HP Lovecraft’s <strong>"Cthulhu Mythos"</strong> and Charles Perrault’s <strong>"Little Red Riding Hood"</strong>.</p>
+  </div>
+
+  <div class="col-12 col-md-3 text-center">
+    <img
+      src="https://static.wikitide.net/blacksoulswiki/thumb/8/8e/sitdownalice.png/375px-sitdownalice.png"
+      class="img-fluid"
+      style="max-width:250px;">
+      
+  </div>
+
+</div>
+
+
+        
+        <a name="character"></a>
+        <div class="row justify-content-center mainKarakterDiv">
+          <hr style="border: 0; border-top:5px solid #CCCCCC;border-radius: 3px; margin:30px 0px 0px 0px;">
+        <h1 align="center">Characters</h1>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/8/8a/Grimm_Profile_Small.png" class="character">
+    <a href="https://ashen.rf.gd/?i=1"><span style="color: skyblue;">Grimm</span></a>
+  </div>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/thumb/7/7e/Node_Dialogue_HD.png/240px-Node_Dialogue_HD.png" class="character">
+    <a href="https://www.instagram.com/angelicstylx/"><span style="color: skyblue;">Node</span></a>
+  </div>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/thumb/6/6d/Cheshire_Cat_Dialogue_HD.png/240px-Cheshire_Cat_Dialogue_HD.png" class="character">
+    <a href="https://github.com/EmbraceUrPain"><span style="color: skyblue;">Cheshire Cat</span></a>
+  </div>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/thumb/7/7a/Red_Hood_Dialogue_HD.png/240px-Red_Hood_Dialogue_HD.png" class="character">
+    <a href="#"><span style="color: skyblue;">Red Hood</span></a>
+  </div>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/thumb/4/4e/Kuti_Dialogue_HD.png/240px-Kuti_Dialogue_HD.png" class="character">
+    <a href="#"><span style="color: skyblue;">Kuti</span></a>
+  </div>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/thumb/e/e4/Leaf_BS2_Dialogue_HD.png/240px-Leaf_BS2_Dialogue_HD.png" class="character">
+    <a href="#"><span style="color: skyblue;">Mary Sue</span></a>
+  </div>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/thumb/f/f9/Dodo_Dialogue_HD.png/240px-Dodo_Dialogue_HD.png" class="character">
+    <a href="#"><span style="color: skyblue;">Dodo</span></a>
+  </div>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/thumb/3/3a/Shisha_Dialogue_HD.png/240px-Shisha_Dialogue_HD.png" class="character">
+    <a href="#"><span style="color: skyblue;">Shisha</span></a>
+  </div>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/thumb/4/42/Tweedledum_Dialogue_HD.png/240px-Tweedledum_Dialogue_HD.png" class="character">
+    <a href="#"><span style="color: skyblue;">Tweedledum</span></a>
+  </div>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/thumb/b/b9/Tweedledee_Dialogue_HD.png/240px-Tweedledee_Dialogue_HD.png" class="character">
+    <a href="#"><span style="color: skyblue;">Tweedledee</span></a>
+  </div>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/thumb/e/e0/Margaret_Dialogue_HD.png/240px-Margaret_Dialogue_HD.png" class="character">
+    <a href="#"><span style="color: skyblue;">Margaret</span></a>
+  </div>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/thumb/4/4c/Bill_Dialogue_HD.png/240px-Bill_Dialogue_HD.png" class="character">
+    <a href="#"><span style="color: skyblue;">Bill</span></a>
+  </div>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/thumb/5/5a/Griffy_Dialogue_HD.png/240px-Griffy_Dialogue_HD.png" class="character">
+    <a href="#"><span style="color: skyblue;">Grify</span></a>
+  </div>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/thumb/6/63/Mock_Turtle_Dialogue_HD.png/240px-Mock_Turtle_Dialogue_HD.png" class="character">
+    <a href="#"><span style="color: skyblue;">Mock Turtle</span></a>
+  </div>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/thumb/c/c6/March_Hare_Dialogue_HD.png/240px-March_Hare_Dialogue_HD.png" class="character">
+    <a href="#"><span style="color: skyblue;">March Hare</span></a>
+  </div>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/thumb/d/dd/Dormouse_Dialogue_HD.png/240px-Dormouse_Dialogue_HD.png" class="character">
+    <a href="#"><span style="color: skyblue;">Dormouse</span></a>
+  </div>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/thumb/1/10/Hatta_Dialogue_HD.png/240px-Hatta_Dialogue_HD.png" class="character">
+    <a href="#"><span style="color: skyblue;">Hatta</span></a>
+  </div>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/thumb/7/70/Victoria_Dialogue_HD.png/240px-Victoria_Dialogue_HD.png" class="character">
+    <a href="#"><span style="color: skyblue;">Maid Victoria</span></a>
+  </div>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/thumb/9/94/Prickett_Dialogue_HD.png/240px-Prickett_Dialogue_HD.png" class="character">
+    <a href="#"><span style="color: skyblue;">Prickett</span></a>
+  </div>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/thumb/0/0d/Lorina_Dialogue_HD.png/240px-Lorina_Dialogue_HD.png" class="character">
+    <a href="#"><span style="color: skyblue;">Lorina</span></a>
+  </div>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/thumb/a/af/Bandersnatch_Dialogue_HD.png/240px-Bandersnatch_Dialogue_HD.png" class="character">
+    <a href="#"><span style="color: skyblue;">Bandersnatch</span></a>
+  </div>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/thumb/6/67/Jubjub_Dialogue_HD.png/240px-Jubjub_Dialogue_HD.png" class="character">
+    <a href="#"><span style="color: skyblue;">Jubjub</span></a>
+  </div>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/thumb/e/ec/Jabberwock_Dialogue_HD.png/240px-Jabberwock_Dialogue_HD.png" class="character">
+    <a href="#"><span style="color: skyblue;">Jabberwock</span></a>
+  </div>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/thumb/6/62/Crawling_One_Dialogue_HD.png/240px-Crawling_One_Dialogue_HD.png" class="character">
+    <a href="#"><span style="color: skyblue;">The Crawling One</span></a>
+  </div>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/thumb/c/c4/Serpent_God_Dialogue_HD.png/240px-Serpent_God_Dialogue_HD.png" class="character">
+    <a href="#"><span style="color: skyblue;">Serpent God</span></a>
+  </div>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/thumb/0/0b/Blackwell_Dialogue_HD.png/240px-Blackwell_Dialogue_HD.png" class="character">
+    <a href="#"><span style="color: skyblue;">Blackwell</span></a>
+  </div>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/4/4f/VernaiSprite.png" class="character">
+    <a href="#"><span style="color: skyblue;">Vernai</span></a>
+  </div>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/1/18/Knight_Pumpkin_O%27.png" class="character">
+    <a href="#"><span style="color: skyblue;">Knight Pumpkin</span></a>
+  </div>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/a/ac/Jack_Dialogue.png" class="character">
+    <a href="#"><span style="color: skyblue;">Detective Holmes</span></a>
+  </div>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/a/a3/Bunny_Girl_Mary_Dialogue.png" class="character">
+    <a href="#"><span style="color: skyblue;">Bunny Girl Mary</span></a>
+  </div>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/b/bc/Chikerost_Dialogue.png" class="character">
+    <a href="#"><span style="color: skyblue;">Chikerost</span></a>
+  </div>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/thumb/3/30/Humpty_Dialogue_HD.png/240px-Humpty_Dialogue_HD.png" class="character">
+    <a href="#"><span style="color: skyblue;">Humpty Dumpty</span></a>
+  </div>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/thumb/2/2c/Chick_Dialogue_HD.png/240px-Chick_Dialogue_HD.png" class="character">
+    <a href="#"><span style="color: skyblue;">Chick</span></a>
+  </div>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/thumb/c/c4/Meryphillia_Dialogue_HD.png/240px-Meryphillia_Dialogue_HD.png" class="character">
+    <a href="#"><span style="color: skyblue;">Meryphillia</span></a>
+  </div>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/0/06/Hein_Dialogue.png" class="character">
+    <a href="#"><span style="color: skyblue;">Hein</span></a>
+  </div>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/thumb/c/cf/Poro_Dialogue.png/240px-Poro_Dialogue.png" class="character">
+    <a href="#"><span style="color: skyblue;">Poro</span></a>
+  </div>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/thumb/5/56/Wolris_Dialogue_HD.png/240px-Wolris_Dialogue_HD.png" class="character">
+    <a href="#"><span style="color: skyblue;">Wolris</span></a>
+  </div>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/thumb/7/73/Oyster_Dialogue_HD.png/240px-Oyster_Dialogue_HD.png" class="character">
+    <a href="#"><span style="color: skyblue;">Cheeky Oyster</span></a>
+  </div>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/thumb/1/1c/Mabel_Dialogue_HD.png/240px-Mabel_Dialogue_HD.png" class="character">
+    <a href="#"><span style="color: skyblue;">Mabel</span></a>
+  </div>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/thumb/1/17/Florence_Dialogue_HD.png/240px-Florence_Dialogue_HD.png" class="character">
+    <a href="#"><span style="color: skyblue;">Florance</span></a>
+  </div>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/b/b5/Sackhead_Girl_Image.png" class="character">
+    <a href="#"><span style="color: skyblue;">Sackhead Girl</span></a>
+  </div>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/thumb/d/de/Lingeriena_Dialogue_HD.png/240px-Lingeriena_Dialogue_HD.png" class="character">
+    <a href="#"><span style="color: skyblue;">Lingeria</span></a>
+  </div>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/thumb/f/f4/Gerda_Dialogue_HD.png/240px-Gerda_Dialogue_HD.png" class="character">
+    <a href="#"><span style="color: skyblue;">Gerda</span></a>
+  </div>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/thumb/f/f0/Unis_Dialogue_HD.png/240px-Unis_Dialogue_HD.png" class="character">
+    <a href="#"><span style="color: skyblue;">Unis</span></a>
+  </div>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/thumb/5/5a/Leiden_Dialogue_HD.png/240px-Leiden_Dialogue_HD.png" class="character">
+    <a href="#"><span style="color: skyblue;">Leiden</span></a>
+  </div>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/thumb/0/07/Sho_Dialogue_HD.png/240px-Sho_Dialogue_HD.png" class="character">
+    <a href="#"><span style="color: skyblue;">Sho</span></a>
+  </div>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/1/13/Carnacki_Dialogue_HD.png" class="character">
+    <a href="#"><span style="color: skyblue;">Carnacki</span></a>
+  </div>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/thumb/5/58/Lindamea_Dialogue_HD.png/240px-Lindamea_Dialogue_HD.png" class="character">
+    <a href="#"><span style="color: skyblue;">Lindamea</span></a>
+  </div>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/8/8a/Edith_Dialogue_HD.png" class="character">
+    <a href="#"><span style="color: skyblue;">Edith</span></a>
+  </div>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/thumb/b/bb/Lorde_Dialogue_HD.png/240px-Lorde_Dialogue_HD.png" class="character">
+    <a href="#"><span style="color: skyblue;">Playwright Lorde</span></a>
+  </div>
+
+  <div class="col-2 karakter-cols">
+    <img src="https://static.wikitide.net/blacksoulswiki/thumb/9/9f/Doll_Alice_Dialogue_HD.png/240px-Doll_Alice_Dialogue_HD.png" class="character">
+    <a href="#"><span style="color: skyblue;">Grand Guignol</span></a>
+  </div>
+
+</div>
+
+
 
       </div>
     </div>
-    <!-- Container Bitiş -->
+  </div>
 
-
-     <div class="footer site-footer">
+      <div class="footer site-footer">
   <div class="row footer-row">
 
     <div class="col-lg-9 col-12 footer-left">
@@ -561,6 +628,9 @@ function darkMode() {
 
 
 
+
+
+
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
@@ -571,5 +641,6 @@ function darkMode() {
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
     -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
